@@ -19,6 +19,25 @@
                 <span>logo</span>
             </div>
         </a>
+        <!---Mobile menu-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul >
+                <li>
+                    <a id="home-btn" onclick="showMobileDropDown()"  href="#">HOME</a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="#">Pizza</a></li>
+                        <li><a href="#">Pizza</a></li>
+                        <li><a href="#">Pizza</a></li>
+                    </ul>
+                </li>
+                <li><a onclick="closeNav()" href="#">NEWS</a></li>
+                <li><a onclick="closeNav()" href="#">CONTACTS</a></li>
+            </ul>
+        </div>
+
+        <span class="open-mobile-menu" onclick="openNav()">&#9776;</span>
+        <!---/ Mobile menu-->
 
 
         <ul id="menu" class="header-menu">
@@ -26,28 +45,18 @@
                 <a href="#">HOME</a>
 
                 <ul class="dropdown">
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Monitors</a></li>
-                    <li><a href="#">Printers</a></li>
+                    <li><a href="#">Pizza</a></li>
+                    <li><a href="#">Pizza</a></li>
+                    <li><a href="#">Pizza</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">NEWS</a>
 
-                <ul class="dropdown">
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Monitors</a></li>
-                    <li><a href="#">Printers</a></li>
-                </ul>
             </li>
             <li>
                 <a href="#">CONTACTS</a>
 
-                <ul class="dropdown">
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Monitors</a></li>
-                    <li><a href="#">Printers</a></li>
-                </ul>
             </li>
         </ul>
 
