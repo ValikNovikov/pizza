@@ -94,7 +94,7 @@ p {
     float: left;
     height: 60px;
     width: 300px;
-    background: red;
+    background: #d2d0d0;
     text-align: center;
     margin: 10px 10px 10px 20px;
     padding: 10px;
@@ -161,7 +161,7 @@ p {
 
 /*Carousel*/
 .single-item div{
-    background: red;
+    background: rgba(109, 98, 98, 0.12);
     width: 100%;
     height: 300px
 }
@@ -179,7 +179,7 @@ p {
 .news {
     margin: 20px 20px 10px 10px;
     border: 5px solid #333;
-    width: 30%;
+    width: 550px;
     float: left;
 }
 
@@ -210,7 +210,7 @@ p {
 }
 
 .pizza {
-    width: 50%;
+    width: 68%;
     float: right;
 }
 
@@ -283,15 +283,52 @@ p {
 /* /Footer*/
 
 /*Media queries*/
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1914px) {
+    .pizza{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1604px) {
+    .pizza{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 1490px) {
+    .pizza{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1285px) {
     .header-menu li{
         margin: 0;
+    }
+    .thumbnail{
+        margin: 20px 3px;
+        width: 200px;
+    }
+    .pizza{
+        width: 47%;
+    }
+    .news{
+        width:450px;
     }
 }
 @media screen and (max-width: 970px) {
     .header-menu li{
         width: 130px;
     }
+
+    .news{
+        width: 385px;
+    }
+
+    .thumbnail{
+        width: 145px;
+    }
+
+    .pizza{
+        width:44%;
+  }
 }
 @media screen and (max-width: 768px) {
     .header-menu li{
