@@ -156,9 +156,13 @@ p {
     height: 40px;
     width: 200px;
     margin: 0;
+    box-shadow: none;
+    border-bottom: solid 0.5px;
 }
-
-.dropdown li a {
+.dropdown li:last-child{
+    border-bottom:none;
+}
+.dropdown li p {
     color: #000;
 }
 
@@ -170,6 +174,7 @@ p {
 
 
 /*Mobile Menu*/
+
 /* The side navigation menu */
 .sidenav {
     height: 100%;
@@ -244,9 +249,14 @@ p {
 
 .news-thumb {
     margin: 20px;
+    border-bottom: solid 2px;
+}
+.news-thumb:last-child{
+    border-bottom: none;
 }
 .news-thumb p{
     margin-bottom: 15px;
+    text-align: justify;
 }
 .news-thumb img {
     float: left;
@@ -394,6 +404,7 @@ p {
 .footer-text{
     width: 30%;
     font-size: 12px;
+    float: left;
 }
 
 /* /Footer*/
