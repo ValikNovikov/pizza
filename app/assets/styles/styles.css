@@ -42,6 +42,8 @@ a {
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+    text-decoration: none;
+    color: black;
 }
 
 table {
@@ -325,13 +327,73 @@ p {
 }
 /* /news container */
 
+
+/*Sprites*/
+.vk-icon, .facebook-icon, .twitter-icon {
+    background-image: url('../images/spritesheet.png');
+    background-repeat: no-repeat;
+    display: block;
+}
+.vk-icon{
+    width: 26px;
+    height: 26px;
+    background-position: -5px -5px;
+}
+.facebook-icon {
+    width: 24px;
+    height: 24px;
+    background-position: -41px -5px;
+}
+.twitter-icon {
+    width: 24px;
+    height: 24px;
+    background-position: -41px -39px;
+}
+
+
+/*/Sprites*/
+
+
 /*Footer*/
 .footer {
     height: 80px;
     flex: 0 0 auto;
     background-color: rgba(37, 3, 3, 0.06);
-    /*margin: 10px 0 0 0;*/
     clear: both;
+}
+.social-menu{
+    float: right;
+    margin: 25px 10px 10px 10px;
+}
+.social-menu li{
+    display: inline-table;
+}
+.social-menu li span{
+    margin: 0 auto 5px auto;
+}
+.social-menu li p{
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer-menu{
+    width: 50%;
+    float: left;
+    margin: 20px 10px 10px 10px;
+}
+
+.footer-center-menu{
+    float: right;
+    text-align: center;
+}
+
+.footer-center-menu li a:hover{
+  color: cornflowerblue;
+}
+
+.footer-text{
+    width: 30%;
+    font-size: 12px;
 }
 
 /* /Footer*/
@@ -452,6 +514,9 @@ p {
         float: left;
         padding: 25px 10px 10px 15px;
         font-size: 30px;
+    }
+    .footer-text p{
+        font-size: 8px;
     }
 }
 
