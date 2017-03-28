@@ -5,13 +5,13 @@ $(function () {
 
 	w();
 
-	$('#menu').slicknav({
-		closedSymbol: "&#9658;",
-		openedSymbol: "&#9660;"
-	});
 
 	$('.single-item').slick();
+
+
 });
+
+
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
