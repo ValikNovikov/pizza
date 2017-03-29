@@ -152,18 +152,20 @@ p {
 }
 
 .dropdown li {
-    display: inherit;
     height: 40px;
     width: 200px;
     margin: 0;
     box-shadow: none;
     border-bottom: solid 0.5px;
+    display: table;
 }
 .dropdown li:last-child{
     border-bottom:none;
 }
 .dropdown li p {
     color: #000;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .slicknav_menu {
@@ -217,8 +219,11 @@ p {
     display:none;
 }
 .mobile-dropdown{
-    padding: 20px;
+    padding: 20px 50px;
     display: none;
+}
+.mobile-dropdown li{
+    font-size: 20px;
 }
 /*Mobile Menu*/
 
@@ -243,7 +248,7 @@ p {
 .news {
     margin: 20px 20px 10px 10px;
     border: 5px solid #333;
-    width: 550px;
+    width: 30%;
     float: left;
 }
 
@@ -279,14 +284,9 @@ p {
 }
 
 .pizza {
-    width: 68%;
-    float: right;
-}
-
-.thumbnail {
     position: relative;
-    width: 250px;
-    margin: 25px;
+    width: 15%;
+    margin: 10px;
     padding: 4px;
     line-height: 1.5;
     background-color: #fff;
@@ -410,52 +410,29 @@ p {
 /* /Footer*/
 
 /*Media queries*/
-@media screen and (max-width: 1914px) {
-    .pizza{
-        width: 60%;
+@media screen and (max-width: 1700px) {
+    .news{
+      width: 40%;
     }
 }
-@media screen and (max-width: 1604px) {
-    .pizza{
-        text-align: center;
+@media screen and (max-width: 1036px) {
+    .news{
+        width: 52%;
     }
-}
-@media screen and (max-width: 1490px) {
     .pizza{
-        width: 50%;
+        float: right;
     }
 }
 @media screen and (max-width: 1285px) {
     .header-menu li{
         margin: 0;
     }
-    .thumbnail{
-        margin: 20px 3px;
-        width: 200px;
-    }
-    .pizza{
-        width: 47%;
-    }
-    .news{
-        width:450px;
-    }
 }
+
 @media screen and (max-width: 970px) {
     .header-menu li{
         width: 130px;
     }
-
-    .news{
-        width: 385px;
-    }
-
-    .thumbnail{
-        width: 145px;
-    }
-
-    .pizza{
-        width:44%;
-  }
 }
 @media screen and (max-width: 768px) {
     .header-menu li{
@@ -464,14 +441,18 @@ p {
     .news{
        display: none;
     }
-    .pizza {
+    .container-pizza-news{
+        text-align: center
+    }
+    .pizza-blocks{
         width: 100%;
         text-align: center;
         float: none;
         margin: 0;
     }
-    .thumbnail{
+    .pizza{
         width: 300px;
+        float: none;
     }
     .header-menu li{
         margin: 0;
@@ -513,7 +494,7 @@ p {
         float: none;
         margin: 0;
     }
-    .thumbnail{
+    .pizza{
         width: 250px;
     }
     .header-logo{
