@@ -20,23 +20,27 @@
             </div>
         </a>
         <!---Mobile menu-->
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <ul >
+        <div id="sidenav" class="sidenav">
+            <a class="menu-btn close-btn">&times;</a>
+            <ul>
                 <li>
-                    <a id="home-btn" onclick="showMobileDropDown()"  href="#">HOME</a>
+                    <a id="home-btn"  href="#">HOME</a>
                     <ul class="mobile-dropdown">
                         <li>Pizza</li>
                         <li>Pizza</li>
                         <li>Pizza</li>
                     </ul>
                 </li>
-                <li><a onclick="closeNav()" href="#">NEWS</a></li>
-                <li><a onclick="closeNav()" href="#">CONTACTS</a></li>
+                <li>
+                    <a class="menu-btn"  href="#">NEWS</a>
+                </li>
+                <li>
+                    <a class="menu-btn"  href="#">CONTACTS</a>
+                </li>
             </ul>
         </div>
 
-        <span class="open-mobile-menu" onclick="openNav()">&#9776;</span>
+        <span class="open-mobile-menu">&#9776;</span>
         <!---/ Mobile menu-->
 
 
@@ -66,12 +70,59 @@
 
     <div class="container">
 
+
         <!------ Slider-------->
-        <div class="single-item">
-            <div><img src="app/assets/images/Pizza-Slider.png" alt=""/></div>
-            <div><img src="app/assets/images/Pizza-Slider.png" alt=""/></div>
-            <div><img src="app/assets/images/Pizza-Slider.png" alt=""/></div>
+        <div class="slider-container">
+
+
+
+            <div class="slider">
+                <ul>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                </ul>
+                <button class="prev">prev</button>
+                <button class="next">next</button>
+            </div>
+
         </div>
+
+
+
+
+
+        <!--<div class="slider-container">-->
+            <!--<div class="slider">-->
+
+                <!--<ul id="slider-content">-->
+                    <!--<li>-->
+                        <!--<img class="slider-image" src="app/assets/images/Pizza-Slider.png" alt=""/>-->
+                        <!--<a class="next" href="#">next</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<img class="slider-image" src="app/assets/images/pizza.png" alt=""/>-->
+                        <!--<a class="next" href="#">next</a>-->
+                        <!--<a class="previous" href="#">prev</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<img class="slider-image" src="app/assets/images/social-sprites.png" alt=""/>-->
+                        <!--<a class="previous" href="#">prev</a>-->
+                        <!--<a class="startover" href="#">startover</a>-->
+                    <!--</li>-->
+
+                <!--</ul>-->
+                <!--<button class="prev">prev</button>-->
+                <!--<button class="next">next</button>-->
+            <!--</div>-->
+
+        <!--</div>-->
         <!------ /Slider-------->
 
 
@@ -84,95 +135,108 @@
 
                 <div class="news-thumb">
                     <img src="http://dummyimage.com/200x200/f0f/fff"/>
-                    <p>post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                    <p>post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
                     </p>
                 </div>
 
                 <div class="news-thumb">
                     <img src="http://dummyimage.com/200x200/f0f/fff"/>
-                    <p>post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
-                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
-                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                    <p>post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
+                        desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+                        post desc
+                        post desc post desc post desc post desc post desc post desc post desc post desc post desc post
+                        desc post
                     </p>
                 </div>
 
             </aside>
 
 
+            <div class="pizza">
 
-                    <div class="pizza">
+                <div class="thumb">
+                    <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
+                </div>
 
-                        <div class="thumb">
-                            <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
-                        </div>
+                <div class="caption">
+                    <h3>Margaritta</h3>
 
-                        <div class="caption">
-                            <h3>Margaritta</h3>
-
-                            <div class="pizza-price">
-                                <span>10$</span>
-                                <button>Buy</button>
-                            </div>
-
-                        </div>
+                    <div class="pizza-price">
+                        <span>10$</span>
+                        <button>Buy</button>
                     </div>
 
-                    <div class="pizza">
-                        <div class="thumb">
-                            <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
-                        </div>
-                        <div class="caption">
-                            <h3>Margaritta</h3>
-
-                            <p class="pizza-price">
-                                <span>10$</span>
-
-                                <button>Buy</button>
-                            </p>
-
-                        </div>
-                    </div>
-                    <div class="pizza">
-                        <div class="thumb">
-                            <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
-                        </div>
-                        <div class="caption">
-                            <h3>Margaritta</h3>
-
-                            <p class="pizza-price">
-                                <span>10$</span>
-
-                                <button>Buy</button>
-                            </p>
-
-                        </div>
-                    </div>
-                    <div class="pizza">
-                        <div class="thumb">
-                            <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
-                        </div>
-                        <div class="caption">
-                            <h3>Margaritta</h3>
-
-                            <p class="pizza-price">
-                                <span>10$</span>
-
-                                <button>Buy</button>
-                            </p>
-
-                        </div>
-                    </div>
+                </div>
             </div>
+
+            <div class="pizza">
+                <div class="thumb">
+                    <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
+                </div>
+                <div class="caption">
+                    <h3>Margaritta</h3>
+
+                    <p class="pizza-price">
+                        <span>10$</span>
+
+                        <button>Buy</button>
+                    </p>
+
+                </div>
+            </div>
+            <div class="pizza">
+                <div class="thumb">
+                    <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
+                </div>
+                <div class="caption">
+                    <h3>Margaritta</h3>
+
+                    <p class="pizza-price">
+                        <span>10$</span>
+
+                        <button>Buy</button>
+                    </p>
+
+                </div>
+            </div>
+            <div class="pizza">
+                <div class="thumb">
+                    <img class="img-responsive" alt="300x200" src="./app/assets/images/pizza.png">
+                </div>
+                <div class="caption">
+                    <h3>Margaritta</h3>
+
+                    <p class="pizza-price">
+                        <span>10$</span>
+
+                        <button>Buy</button>
+                    </p>
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer">
 
@@ -225,7 +289,5 @@
 <!-- endinject -->
 <script src="./app/vendor/jquery/jquery-3.2.0.min.js"></script>
 <script src="./app/js/controller.js"></script>
-<!--<script src="./app/vendor/nav-menu/jquery.slicknav.min.js"></script>-->
-<script src="./app/vendor/slider/slick.min.js"></script>
 </body>
 </html>

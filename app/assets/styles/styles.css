@@ -176,11 +176,10 @@ p {
 
 
 /*Mobile Menu*/
-
-/* The side navigation menu */
 .sidenav {
     height: 100%;
-    width: 0;
+    width: 250px;
+    transform:translateX(-250px);
     position: fixed;
     z-index: 3;
     top: 0;
@@ -192,7 +191,6 @@ p {
 
 }
 
-/* The navigation menu links */
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -202,17 +200,15 @@ p {
     transition: 0.3s
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+ .close-btn {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 36px !important;
     margin-left: 50px;
 }
 .open-mobile-menu{
@@ -225,19 +221,81 @@ p {
 .mobile-dropdown li{
     font-size: 20px;
 }
-/*Mobile Menu*/
+.show-dropdown{
+    display: block !important;
+}
+/* /Mobile Menu*/
 
 
 /*Carousel*/
-.single-item div{
-    background: rgba(109, 98, 98, 0.12);
-    width: 100%;
-    height: 300px
+.slider-container {
+    margin: 0 auto;
+    width: 80%;
+    background-color: #fff;
+    min-height: 400px;
 }
-.single-item img{
-    margin: auto auto;
+.slider {
+    width: 100%;
+    overflow: hidden;
+    height: 385px;
+    position: relative;
 }
 
+.slider ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    top: 0;
+}
+
+.slider li {
+    padding: 0;
+    margin: 0;
+    width: 33.333333%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.slider li img {
+    border: none;
+    width: 100%;
+    min-height: 100%;
+}
+.slider button {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    opacity: 0;
+    z-index: 2;
+}
+
+.slider button.prev {
+    left: 0;
+}
+
+.slider button.next {
+    right: 0;
+}
+
+.slider button:hover, .slider button:active {
+    opacity: 1.0;
+}
 /* /Carousel*/
 
 /*news and pizza content*/
@@ -340,24 +398,24 @@ p {
 
 /*Sprites*/
 .vk-icon, .facebook-icon, .twitter-icon {
-    background-image: url('../images/spritesheet.png');
+    background-image: url('../images/social-sprites.png');
     background-repeat: no-repeat;
     display: block;
 }
-.vk-icon{
-    width: 26px;
-    height: 26px;
+.twitter-icon{
+    width: 32px;
+    height: 32px;
     background-position: -5px -5px;
 }
 .facebook-icon {
-    width: 24px;
-    height: 24px;
-    background-position: -41px -5px;
+    width: 32px;
+    height: 32px;
+    background-position: -47px -5px;
 }
-.twitter-icon {
-    width: 24px;
-    height: 24px;
-    background-position: -41px -39px;
+.vk-icon {
+    width: 32px;
+    height: 32px;
+    background-position: -89px -5px;
 }
 
 
@@ -425,8 +483,9 @@ p {
 }
 @media screen and (max-width: 1285px) {
     .header-menu li{
-        margin: 0;
+        margin: 10px 0 0 0 ;
     }
+
 }
 
 @media screen and (max-width: 970px) {
