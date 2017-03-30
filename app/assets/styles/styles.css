@@ -302,7 +302,7 @@ p {
 .slider button:hover, .slider button:active {
     opacity: 1.0;
 }
-.active-dot{
+.active{
     background-color: black !important;
 }
 
@@ -531,6 +531,9 @@ p {
 @media screen and (max-width: 1285px) {
     .header-menu li{
         margin: 10px 0 0 0 ;
+    }
+    .header-menu li ul li{
+        margin: 0 ;
     }
 
 }
