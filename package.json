@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "2.18.8",
+    "eslint": "^3.18.0",
     "event-stream": "^3.3.4",
     "gulp": "3.9.1",
     "gulp-concat": "^2.6.1",
