@@ -3,25 +3,45 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
-	inject = require('gulp-inject');
+	inject = require('gulp-inject'),
+	concat = require('gulp-concat'),
+	es = require('event-stream');
+
+
 
 
 gulp.task('inject', function () {
-	var target = gulp.src('index.html'),
-		sources = gulp.src(['app/js/**/*.js', 'app/assets/styles/styles/**/*.css'], {read: false});
+	var cssSteram = gulp.src(['app/assets/styles/*.css'])
+		.pipe(gulp.dest('./dist/styles'));
 
-	return target.pipe(inject(sources,{ relative: true }))
-		.pipe(gulp.dest('dist'))
-		.pipe(browserSync.stream());
+	var vendorStream =	gulp.src(['app/vendor/**/*.js'])
+		.pipe(concat('vendors.js'))
+		.pipe(gulp.dest('./dist/js'));
+
+
+	var appStream = gulp.src(['app/js/**/*.js'])
+		.pipe(concat('app.js'))
+		.pipe(gulp.dest('./dist/js'));
+
+
+	gulp.src('./index.html')
+		.pipe(inject(es.merge(vendorStream, appStream,cssSteram),{ignorePath: 'dist'}))
+		.pipe(gulp.dest('./dist'));
+
 });
+
+
+
+
+
+
 
 gulp.task("build-js", function () {
 	return gulp.src("app/js/**/*.js")
 		.pipe(sourcemaps.init())
-		.pipe(babel())
 		.pipe(concat("all.js"))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest("./dist"))
+		.pipe(gulp.dest("./dist/js"))
 		.pipe(browserSync.stream());
 });
 
@@ -31,7 +51,7 @@ gulp.task('watch', function(){
 	gulp.watch("index.html").on('change', browserSync.reload);
 });
 
-gulp.task('serve',['watch','inject'], function() {
+gulp.task('serve',['inject','watch'], function() {
 	browserSync.init({
 		server: {
 			baseDir: './'
