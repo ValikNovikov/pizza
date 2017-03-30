@@ -44,11 +44,11 @@ var $mobileDropDown = $('.mobile-dropdown');
 		$(this).css({width:(100 / slideCount) + "%"});
 	});
 
-	$(".slider .prev").click(function() {
+	$(".prev").on('click', function() {
 		slide(slideIndex - 1);
 	});
 
-	$(".slider .next").click(function() {
+	$(".next").click(function() {
 		slide(slideIndex + 1);
 	});
 
