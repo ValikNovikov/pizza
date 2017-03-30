@@ -5,12 +5,12 @@ var $mobileDropDown = $('.mobile-dropdown');
 
 	/* Set the width of the side navigation to 250px */
 	$('.open-mobile-menu').click(function () {
-		$("#sidenav").css({'transform': 'translateX(0)'});
+		$("#sidenav").addClass('show-sidenav');
 	});
 
 	/* Set the width of the side navigation to 0 */
 	$('.menu-btn').click(function () {
-		$("#sidenav").css({'transform': 'translateX(-260px)'});
+		$("#sidenav").removeClass('show-sidenav');
 
 	});
 
