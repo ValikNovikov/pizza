@@ -41,6 +41,7 @@ var $mobileDropDown = $('.mobile-dropdown');
 
 	$ul.find("li").each(function(indx) {
 		var leftPercentage = (slideWidth * indx) + "%";
+
 		$(this).css({"left":leftPercentage});
 		$(this).css({width:(slideWidth) + "%"});
 	});
@@ -56,6 +57,7 @@ var $mobileDropDown = $('.mobile-dropdown');
 		var $currentDot = $(".current-dot");
 
 		slide(slideIndex - 1);
+
 		$currentDot.eq(slideIndex).removeClass("active-dot");
 		$currentDot.eq(slideIndex - 1).addClass("active-dot");
 	});
@@ -72,7 +74,6 @@ var $mobileDropDown = $('.mobile-dropdown');
 		if(slideIndex +1 == slideCount){
 			$currentDot.eq(0).addClass("active-dot");
 		}
-
 		$currentDot.eq(slideIndex + 1).addClass("active-dot");
 	});
 
@@ -98,6 +99,7 @@ $('.current-dot').click(function  () {
 
 				newSlideIndex = slideCount - 1;
 			} else if(newSlideIndex >= slideCount) {
+
 				$ul.css("margin-left", "-100%");
 
 				newSlideIndex = 0;

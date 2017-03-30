@@ -127,6 +127,8 @@ p {
     height: 80px;
     background-color: rgba(208, 208, 208, 0.68);
     box-shadow: 2px 5px 6px #888888;
+    line-height: 75px;
+    cursor: pointer;
 }
 
 .header-menu li a {
