@@ -29,8 +29,9 @@ var $mobileDropDown = $('.mobile-dropdown');
 
 //-----carousel------//
 	var $ul = $(".slider ul"),
+	$dots=$("#dots"),
 	slideCount = $ul.children().length,
-	slideWidth = 100.0 / slideCount,
+	slideWidth = '100',
 	slideIndex = 0,
 	firstSlide = $ul.find("li:first-child"),
 	lastSlide = $ul.find("li:last-child");
@@ -41,16 +42,50 @@ var $mobileDropDown = $('.mobile-dropdown');
 	$ul.find("li").each(function(indx) {
 		var leftPercentage = (slideWidth * indx) + "%";
 		$(this).css({"left":leftPercentage});
-		$(this).css({width:(100 / slideCount) + "%"});
+		$(this).css({width:(slideWidth) + "%"});
 	});
+
+	for(var i=0; i < slideCount; i++){
+		$dots.prepend('<li><a class="current-dot">Home</a></li>');
+	}
+	$dots.find('li:first-child a').addClass("active-dot");
+
+
 
 	$(".prev").on('click', function() {
+		var $currentDot = $(".current-dot");
+
 		slide(slideIndex - 1);
+		$currentDot.eq(slideIndex).removeClass("active-dot");
+		$currentDot.eq(slideIndex - 1).addClass("active-dot");
 	});
 
+
+
 	$(".next").click(function() {
+		var $currentDot = $(".current-dot");
+
 		slide(slideIndex + 1);
+
+		$currentDot.eq(slideIndex).removeClass("active-dot");
+
+		if(slideIndex +1 == slideCount){
+			$currentDot.eq(0).addClass("active-dot");
+		}
+
+		$currentDot.eq(slideIndex + 1).addClass("active-dot");
 	});
+
+
+
+$('.current-dot').click(function  () {
+	var index = $( ".current-dot" ).index(this);
+
+	$(".current-dot").removeClass("active-dot");
+	$(this).addClass("active-dot");
+
+	slide(index);
+});
 
 
 	function slide(newSlideIndex) {

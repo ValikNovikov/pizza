@@ -249,7 +249,7 @@ p {
     padding: 0;
     list-style: none;
     position: absolute;
-    width: 300%;
+    width: 100%;
     height: 100%;
     top: 0;
 }
@@ -299,6 +299,47 @@ p {
 
 .slider button:hover, .slider button:active {
     opacity: 1.0;
+}
+.active-dot{
+    background-color: black !important;
+}
+
+#dots{
+    position: relative;
+    display: inline-block;
+    margin: 10px 0 0 0 ;
+    padding: 0;
+    list-style: none;
+    cursor: default;
+    text-align: center;
+    width: 100%;
+}
+#dots li {
+    position: relative;
+    display: inline-block;
+    margin: 0 16px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+#dots li a{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border-radius: 50%;
+    background-color: red;
+    text-indent: -999em;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 2px white;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+#dots li a:hover{
+    background-color: rgba(0, 0, 0, 0.2);
 }
 /* /Carousel*/
 
