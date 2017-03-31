@@ -4,7 +4,7 @@
         $ul = $('.slider ul'),
         $dots = $('#dots'),
         $currentDots,
-        $mySlider= $('#my-slider'),
+        $mySlider = $('#my-slider'),
         slideCount = $ul.children().length,
         slideWidth = 100, // eslint-disable-line
         slideIndex = 0, // eslint-disable-line
@@ -103,7 +103,6 @@
             }
 
             if (options.autoSlide) {
-
                 intervalStart = function () {
                     interval = setInterval(function () {
                         if (slideIndex + 1 === slideCount) { // eslint-disable-line
