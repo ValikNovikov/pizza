@@ -4,14 +4,16 @@
         $ul = $('.slider ul'),
         $dots = $('#dots'),
         $currentDots,
+        $mySlider= $('#my-slider'),
         slideCount = $ul.children().length,
         slideWidth = 100, // eslint-disable-line
         slideIndex = 0, // eslint-disable-line
         firstSlide = $ul.find('li:first-child'),
         lastSlide = $ul.find('li:last-child'),
         i,
-        buttons = '<button class="prev">&#x2190;</button>';
-    buttons += '<button class="next">&#x2192;</button>';
+        intervalStart,
+        interval,
+        buttons = '<button class="prev">&#x2190;</button> <button class="next">&#x2192;</button>';
 
     jQuery.fn.slider = function (options) {
         options = $.extend({
@@ -57,16 +59,20 @@
 
 
             $('.prev').on('click', function () {
-                slide(slideIndex - 1); // eslint-disable-line
-                if (options.dots)  dotMarker(-1); // eslint-disable-line
+                if (options.dots) {
+                    dotMarker(-1); // eslint-disable-line
+                }
+
+              slide(slideIndex - 1); // eslint-disable-line
             });
 
             $('.next').click(function () {
                 if (slideIndex + 1 === slideCount) { // eslint-disable-line
                     $currentDots.eq(0).addClass('active'); // eslint-disable-line
                 }
-
-               if (options.dots) dotMarker(1); // eslint-disable-line
+                if (options.dots) {
+                    dotMarker(1);// eslint-disable-line
+                }
                 slide(slideIndex + 1); // eslint-disable-line
             });
 
@@ -97,13 +103,25 @@
             }
 
             if (options.autoSlide) {
-                setInterval(function () {
-                    if (slideIndex + 1 === slideCount) { // eslint-disable-line
-                        $currentDots.eq(0).addClass('active'); // eslint-disable-line
-                    }
-                    dotMarker(+1); // eslint-disable-line
-                    slide(slideIndex + 1); // eslint-disable-line
-                }, options.delay); // eslint-disable-line
+
+                intervalStart = function () {
+                    interval = setInterval(function () {
+                        if (slideIndex + 1 === slideCount) { // eslint-disable-line
+                            $currentDots.eq(0).addClass('active'); // eslint-disable-line
+                        }
+                        dotMarker(1); // eslint-disable-line
+                        slide(slideIndex + 1); // eslint-disable-line
+                    }, options.delay);
+                };
+                intervalStart();
+
+                $mySlider.hover(function () {
+                    clearInterval(interval);
+                });
+
+                $mySlider.mouseleave(function () {
+                    intervalStart();
+                });
             }
         };
 
