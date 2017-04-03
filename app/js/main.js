@@ -65,11 +65,9 @@ var Pizza = Backbone.Model.extend({
         }
     }),
 
-    collectionOfPizzas = new PizzaCollection();
+    collectionOfPizzas = new PizzaCollection(),
 
-    collectionOfPizzas.fetch();
-
-    var pizzaCollectionView = new PizzaCollectionView({collection: collectionOfPizzas});
+    pizzaCollectionView = new PizzaCollectionView({collection: collectionOfPizzas});
 
 
 $('#pizza-content').append(pizzaCollectionView.render().el);
