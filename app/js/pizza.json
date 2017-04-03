@@ -1,0 +1,24 @@
+{
+  pizza: [
+    {
+      name: 'Margaritta',
+      img: './app/assets/images/pizza.png',
+      price: '10$'
+    },
+    {
+      name: 'Margaritta',
+      img: './app/assets/images/pizza.png',
+      price: '10$'
+    },
+    {
+      name: 'Margaritta',
+      img: './app/assets/images/pizza.png',
+      price: '10$'
+    },
+    {
+      name: 'Margaritta',
+      img: './app/assets/images/pizza.png',
+      price: '10$'
+    }
+  ]
+}
