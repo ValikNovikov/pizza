@@ -82,14 +82,15 @@ html,body {
     height: 100%;
 }
 
-.container {
-    flex: 1 0 auto;
-}
-
 p {
     font-family: 'Baloo Bhaina', cursive;
 }
-
+.margin-top{
+    margin-top: 20px;
+}
+.padding{
+    padding: 0;
+}
 /* /Globals*/
 
 
@@ -351,10 +352,7 @@ p {
 }
 
 .news {
-    margin: 20px 20px 10px 10px;
     border: 5px solid #333;
-    width: 30%;
-    float: left;
 }
 
 .news-thumb {
@@ -389,15 +387,15 @@ p {
 }
 
 .pizza {
-    position: relative;
-    width: 15%;
-    margin: 10px;
+    /*position: relative;*/
+    /*width: 15%;*/
+    margin: 3px 3px 10px 3px;
     padding: 4px;
     line-height: 1.5;
     background-color: #fff;
     border: 4px solid #e4e4e4;
     border-radius: 5px;
-    display: inline-table;
+    /*display: inline-table;*/
 }
 .thumb img{
     z-index: 1;
@@ -471,14 +469,14 @@ p {
 
 /*Footer*/
 .footer {
-    height: 80px;
+    /*height: 80px;*/
     flex: 0 0 auto;
     background-color: rgba(37, 3, 3, 0.06);
     clear: both;
 }
 .social-menu{
     float: right;
-    margin: 25px 10px 10px 10px;
+    margin: 20px 10px 10px 10px;
 }
 .social-menu li{
     display: inline-table;
@@ -494,7 +492,7 @@ p {
 .footer-menu{
     width: 50%;
     float: left;
-    margin: 20px 10px 10px 10px;
+    margin: 15px 10px 10px 10px;
 }
 
 .footer-center-menu{
@@ -516,17 +514,17 @@ p {
 
 /*Media queries*/
 @media screen and (max-width: 1700px) {
-    .news{
-      width: 40%;
-    }
+    /*.news{*/
+      /*width: 40%;*/
+    /*}*/
 }
 @media screen and (max-width: 1036px) {
-    .news{
-        width: 52%;
-    }
-    .pizza{
-        float: right;
-    }
+    /*.news{*/
+        /*width: 52%;*/
+    /*}*/
+    /*.pizza{*/
+        /*float: right;*/
+    /*}*/
 }
 @media screen and (max-width: 1285px) {
     .header-menu li{
@@ -541,6 +539,10 @@ p {
 @media screen and (max-width: 970px) {
     .header-menu li{
         width: 130px;
+    }
+    .footer-text{
+        font-size: 10px;
+        width: 37%;
     }
 }
 @media screen and (max-width: 768px) {
@@ -559,15 +561,15 @@ p {
         float: none;
         margin: 0;
     }
-    .pizza{
-        width: 300px;
-        float: none;
+    .thumb img{
+        width: 100%;
     }
     .header-menu li{
         margin: 0;
     }
     .header-logo{
         margin: 0;
+        height: 80px;
     }
     .header{
         height: 80px;
@@ -581,7 +583,6 @@ p {
     .sidenav a {
         font-size: 18px;
     }
-
 }
 
 @media screen and (max-width: 40em) {
@@ -599,23 +600,28 @@ p {
         background: #f2f2f2;
         position: static;
     }
+
     .header-logo{
         float: none;
         margin: 0;
     }
-    .pizza{
-        width: 250px;
-    }
+
     .header-logo{
         float: right;
         width: 80%;
     }
+
     .open-mobile-menu{
         display: block;
         float: left;
         padding: 25px 10px 10px 15px;
         font-size: 30px;
     }
+
+    .pizza{
+        margin:0 0 10px 0;
+    }
+
     .footer-text p{
         font-size: 8px;
     }
@@ -624,6 +630,16 @@ p {
     }
     .slider{
         height: 350px;
+    }
+    .footer-text{
+        width: 30%;
+
+    }
+    .footer-menu{
+        width: 100%;
+    }
+    .footer-center-menu{
+        float: none;
     }
 }
 
