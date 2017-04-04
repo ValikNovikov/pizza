@@ -32,6 +32,10 @@ $(function () {
 (function () {
     'use strict';
 
+    var collectionOfPizzas,
+        pizzaView,
+        renderView;
+
     window.PizzaApp = {
         Models: {},
         Collections: {},
@@ -42,7 +46,7 @@ $(function () {
         return _.template($('#' + id).html());
     };
 
-    PizzaApp.Models.Pizza = Backbone.Model.extend({
+    window.PizzaApp.Models.Pizza = Backbone.Model.extend({
         defaults: {
             name: 'Margaritta',
             img: './assets/images/pizza.png',
@@ -50,7 +54,7 @@ $(function () {
         }
     });
 
-    PizzaApp.Views.Pizza = Backbone.View.extend({
+    window.PizzaApp.Views.Pizza = Backbone.View.extend({
         template: window.template('pizzaTemplate'),
 
         render: function () {
@@ -59,12 +63,12 @@ $(function () {
         }
     });
 
-    PizzaApp.Collections.Pizza = Backbone.Collection.extend({
-        model: PizzaApp.Models.Pizza,
+    window.PizzaApp.Collections.Pizza = Backbone.Collection.extend({
+        model: window.PizzaApp.Models.Pizza,
         url: './app/js/pizza.json'
     });
 
-    PizzaApp.Views.PizzaCollection = Backbone.View.extend({
+    window.PizzaApp.Views.PizzaCollection = Backbone.View.extend({
         initialize: function () {
             this.listenTo(this.collection, 'add reset', function () {
                 this.render();
@@ -73,16 +77,16 @@ $(function () {
         render: function () {
             this.$el.empty();
             this.collection.each(function (pizza) {
-                var pizzaView = new PizzaApp.Views.Pizza({model: pizza});
-                this.el.append(pizzaView.render().el);
+                renderView = new window.PizzaApp.Views.Pizza({model: pizza});
+                this.el.append(renderView.render().el);
             }, this);
             return this;
         }
     });
 
-    var collectioOfPizzas = new PizzaApp.Collections.Pizza();
+    collectionOfPizzas = new window.PizzaApp.Collections.Pizza();
 
-    var pizzaView = new PizzaApp.Views.PizzaCollection({collection: collectioOfPizzas});
+    pizzaView = new window.PizzaApp.Views.PizzaCollection({collection: collectionOfPizzas});
 
     pizzaView.collection.fetch();
 

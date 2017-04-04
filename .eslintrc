@@ -9,10 +9,19 @@
     // Global variables used in a file, but defined in another file
     // More info here - http://eslint.org/docs/user-guide/configuring#specifying-globals
   },
+  "extends": "plugin:backbone/recommended",
   "plugins": [
     // Defining ESLint plugins you use
     // More info here - http://eslint.org/docs/user-guide/configuring#configuring-plugins
+    "backbone"
   ],
+  "settings": {
+    "backbone": {
+      "Collection": ["Backbone.NestedCollection", "MyCollection"],
+      "Model": ["MyBaseModel"],
+      "View": ["MyBaseView"]
+    }
+  },
   "rules": {
     // Syntax or logic errors
     "no-console": 2,

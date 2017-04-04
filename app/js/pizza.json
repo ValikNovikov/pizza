@@ -1,22 +1,22 @@
  [
     {
+      "name": "Quattro Stagioni",
+      "img": "./app/assets/images/pizza.png",
+      "price": "15$"
+    },
+    {
       "name": "Margaritta",
+      "img": "./app/assets/images/pizza.png",
+      "price": "12$"
+    },
+    {
+      "name": "Hawaiian",
       "img": "./app/assets/images/pizza.png",
       "price": "10$"
     },
     {
       "name": "Margaritta",
       "img": "./app/assets/images/pizza.png",
-      "price": "10$"
-    },
-    {
-      "name": "Margaritta",
-      "img": "./app/assets/images/pizza.png",
-      "price": "10$"
-    },
-    {
-      "name": "Margaritta",
-      "img": "./app/assets/images/pizza.png",
-     "price": "10$"
+     "price": "12$"
     }
 ]
