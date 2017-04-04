@@ -27,7 +27,6 @@ $(function () {
     $('#my-slider').slider({dots: true, autoSlide: true});
 // -----/carousel------//
 });
-
 // -----creating backbone model and view------//
 (function () {
     'use strict';
