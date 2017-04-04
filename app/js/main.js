@@ -29,59 +29,62 @@ $(function () {
 });
 
 // -----creating backbone model and view------//
-var Pizza = Backbone.Model.extend({
+(function () {
+    'use strict';
+
+    window.PizzaApp = {
+        Models: {},
+        Collections: {},
+        Views: {}
+    };
+
+    window.template = function (id) {
+        return _.template($('#' + id).html());
+    };
+
+    PizzaApp.Models.Pizza = Backbone.Model.extend({
         defaults: {
             name: 'Margaritta',
             img: './assets/images/pizza.png',
             price: '10$'
         }
-    }),
+    });
 
-    template = function (id) {
-        return _.template($('#' + id).html());
-    },
-
-    PizzaView = Backbone.View.extend({
-        template: template('pizzaTemplate'),
+    PizzaApp.Views.Pizza = Backbone.View.extend({
+        template: window.template('pizzaTemplate'),
 
         render: function () {
             this.setElement(this.template(this.model.toJSON()));
             return this;
         }
-    }),
+    });
 
-    PizzaCollection = Backbone.Collection.extend({
-        model: Pizza,
-        url: './app/js/pizza.json',
+    PizzaApp.Collections.Pizza = Backbone.Collection.extend({
+        model: PizzaApp.Models.Pizza,
+        url: './app/js/pizza.json'
+    });
 
+    PizzaApp.Views.PizzaCollection = Backbone.View.extend({
         initialize: function () {
-        }
-    }),
-
-    PizzaCollectionView = Backbone.View.extend({
-        initialize: function () {
-            this.listenTo(this.collection, 'change reset', function () {
-                console.log('r');
+            this.listenTo(this.collection, 'add reset', function () {
+                this.render();
             });
         },
-
         render: function () {
+            this.$el.empty();
             this.collection.each(function (pizza) {
-                var pizzaView = new PizzaView({model: pizza});
+                var pizzaView = new PizzaApp.Views.Pizza({model: pizza});
                 this.el.append(pizzaView.render().el);
             }, this);
             return this;
         }
-    }),
+    });
 
-    collectionOfPizzas = new PizzaCollection();
-collectionOfPizzas.fetch({
-    success: function (s) {
-        console.log('success');
-    }, error: function () {
-        console.log('error');
-    }
-});
-console.log(collectionOfPizzas);
-var pizzaCollectionView = new PizzaCollectionView({collection: collectionOfPizzas});
-$('#pizza-content').append(pizzaCollectionView.render().el);
+    var collectioOfPizzas = new PizzaApp.Collections.Pizza();
+
+    var pizzaView = new PizzaApp.Views.PizzaCollection({collection: collectioOfPizzas});
+
+    pizzaView.collection.fetch();
+
+    $('#pizza-content').append(pizzaView.render().el);
+})();
