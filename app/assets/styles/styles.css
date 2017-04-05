@@ -387,15 +387,12 @@ p {
 }
 
 .pizza {
-    /*position: relative;*/
-    /*width: 15%;*/
     margin: 3px 3px 10px 3px;
     padding: 4px;
     line-height: 1.5;
     background-color: #fff;
     border: 4px solid #e4e4e4;
     border-radius: 5px;
-    /*display: inline-table;*/
 }
 .thumb img{
     z-index: 1;
@@ -514,21 +511,14 @@ p {
 
 /*Media queries*/
 @media screen and (max-width: 1700px) {
-    /*.news{*/
-      /*width: 40%;*/
-    /*}*/
+
 }
 @media screen and (max-width: 1036px) {
-    /*.news{*/
-        /*width: 52%;*/
-    /*}*/
-    /*.pizza{*/
-        /*float: right;*/
-    /*}*/
+
 }
 @media screen and (max-width: 1285px) {
     .header-menu li{
-        margin: 10px 0 0 0 ;
+        margin: 10px 0 10px 0 ;
     }
     .header-menu li ul li{
         margin: 0 ;

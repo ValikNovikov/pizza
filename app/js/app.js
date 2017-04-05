@@ -5,13 +5,33 @@
         paths: {
             // specific libs and plugins
             jquery: '../vendor/jquery/jquery-3.2.0.min',
+            backbone: '../vendor/backbone/backbone-min',
             underscore: '../vendor/underscore/underscore-min',
-            backbone: '../vendor/backbone/backbone-min'
+            slider: '../vendor/slider/my-slider',
+            bootstrap: '../vendor/bootstrap/js/bootstrap.min'
+        },
+        shim: {
+            'backbone': {
+                deps: ['underscore', 'jquery', 'underscore'],
+                exports: 'backbone'
+            },
+            'jquery': {
+                exports: '$'
+            },
+            'slider': {
+                deps: ['jquery']
+            },
+            'bootstrap': {
+                deps: ['jquery']
+            },
+            'underscore': {
+                exports: '_'
+            }
         }
     });
 
 
-    require(['jquery', 'underscore', '../js/collection', '../js/views'], function ($, _, PizzaCollection, PizzaView) {
+    require(['jquery', 'underscore', '../js/collection', '../js/views', 'slider'], function ($, _, PizzaCollection, PizzaView) {
         $(function () {
             var $mobileDropDown = $('.mobile-dropdown'),
                 $sideNav = $('#sidenav'),
@@ -41,11 +61,6 @@
             $('#my-slider').slider({dots: true, autoSlide: true});
             // -----/carousel------//
 
-            // window.PizzaApp = {
-            //     Models: {},
-            //     Collections: {},
-            //     Views: {}
-            // };
 
             collectionOfPizzas = new PizzaCollection();
 

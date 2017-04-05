@@ -8,7 +8,6 @@ define(['jquery', 'backbone', '../js/model'],
             model: PizzaModel,
             url: './app/js/pizza.json'
         });
-
         return CollectionOfPizza;
     });
 

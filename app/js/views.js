@@ -1,8 +1,8 @@
-define(['backbone', 'jquery'],
-    function (Backbone, $) {
+define(['backbone', 'jquery', 'underscore'],
+    function (Backbone, $, _) {
         'use strict';
         var PizzaView,
-            PizzaCollectionView,
+            pizzaCollectionView,
             renderView;
 
         window.template = function (id) {
@@ -18,7 +18,7 @@ define(['backbone', 'jquery'],
             }
         });
 
-        PizzaCollectionView = Backbone.View.extend({
+        pizzaCollectionView = Backbone.View.extend({
             initialize: function () {
                 this.listenTo(this.collection, 'add reset', function () {
                     this.render();
@@ -36,6 +36,6 @@ define(['backbone', 'jquery'],
 
         return {
             PizzaView: PizzaView,
-            PizzaCollectionView: PizzaCollectionView
+            PizzaCollectionView: pizzaCollectionView
         };
     });
