@@ -72,14 +72,23 @@ input, select {
     padding: 0;
 }
 
-html,body {
-    height:100%;
-}
-
-.main-container{
-    display: flex;
-    flex-direction: column;
+html {
     height: 100%;
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body{
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+.main-container{
+    margin: 0 0 40px 0;
 }
 
 p {
@@ -466,10 +475,12 @@ p {
 
 /*Footer*/
 .footer {
-    /*height: 80px;*/
-    flex: 0 0 auto;
+    width: 100%;
     background-color: rgba(37, 3, 3, 0.06);
-    clear: both;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 .social-menu{
     float: right;
@@ -542,6 +553,9 @@ p {
     .news{
        display: none;
     }
+    .main-container{
+        margin: 0 0 140px 0;
+    }
     .container-pizza-news{
         text-align: center
     }
@@ -579,7 +593,9 @@ p {
     #menu {
         display: none;
     }
-
+    .main-container{
+       margin: 0 0 200px 0;
+    }
     .slicknav_menu {
         display: none;
     }

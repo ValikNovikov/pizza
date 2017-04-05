@@ -63,7 +63,7 @@
                     dotMarker(-1); // eslint-disable-line
                 }
 
-              slide(slideIndex - 1); // eslint-disable-line
+                slide(slideIndex - 1); // eslint-disable-line
             });
 
             $('.next').click(function () {
@@ -76,7 +76,7 @@
                 slide(slideIndex + 1); // eslint-disable-line
             });
 
-            function dotMarker (val) {
+            function dotMarker(val) {
                 var $currentDot = $('.dot');
 
                 $currentDot.eq(slideIndex).removeClass('active');
@@ -84,7 +84,7 @@
             }
 
 
-            function slide (newSlideIndex) {
+            function slide(newSlideIndex) {
                 var marginLeft = (newSlideIndex * ('-100') - '100') + '%';
 
                 $ul.animate({'margin-left': marginLeft}, '400', function () {
