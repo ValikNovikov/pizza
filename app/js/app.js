@@ -35,7 +35,8 @@
         var collectionOfPizzas,
             View,
             $mobileDropDown = $('.mobile-dropdown'),
-            $sideNav = $('#sidenav');
+            $sideNav = $('#sidenav'),
+            arrOfProducts;
 
 
         /* Set the width of the side navigation to 250px */
@@ -55,6 +56,13 @@
                 $mobileDropDown.slideDown().toggleClass('show-dropdown');
             }
         });
+
+        // -----carousel------//
+
+        $('#my-slider').slider({dots: true, autoSlide: true, delay: 4000});
+
+        // -----/carousel------//
+
         collectionOfPizzas = new PizzaCollection();
 
         View = new PizzaView.PizzaCollectionView({collection: collectionOfPizzas});
@@ -63,8 +71,53 @@
 
         $('#pizza-content').append(View.render().el);
 
-        // -----carousel------//
-        $('#my-slider').slider({dots: true, autoSlide: true});
-        // -----/carousel------//
+
+        // -----the most popular product------//
+        arrOfProducts = [];
+
+        function add (str) {
+            if (!findProduct(str)) {
+                arrOfProducts.push({name: str, count: 1});
+            }
+        }
+
+        function findProduct (prod) {
+            var val = false;  // eslint-disable-line
+            arrOfProducts.forEach(function (item, index) {
+                if (item.name === prod) {
+                    arrOfProducts[index].count += 1;
+                    val = true;
+                }
+            });
+            return val;
+        }
+
+        add('egg');
+        add('mazik');
+        add('mazik');
+        add('mazik');
+        add('cibulya');
+        add('salt');
+
+        function findMostPopular (a, b) {
+            if (a.count > b.count) {
+                return -1; // eslint-disable-line
+            }
+            if (a.count < b.count) {
+                return 1; // eslint-disable-line
+            }
+            return 0; // eslint-disable-line
+        }
+
+        arrOfProducts.sort(findMostPopular);
+        console.log(arrOfProducts[0], arrOfProducts); // eslint-disable-line
+
+        // function findMostUnPopular(a, b) {
+        // 	if (a.count < b.count)
+        // 		return -1;
+        // 	if (a.count > b.count)
+        // 		return 1;
+        // 	return 0;
+        // }
     });
 })();

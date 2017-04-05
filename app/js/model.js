@@ -8,7 +8,9 @@ define(['backbone'],
             defaults: {
                 name: 'Margaritta',
                 img: './assets/images/pizza.png',
-                price: '10$'
+                chilly: '',
+                price: '10$',
+                ingredients: ''
             }
         });
 
