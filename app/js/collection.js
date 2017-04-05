@@ -1,6 +1,6 @@
-define(['jquery', 'backbone','../js/model'],
+define(['jquery', 'backbone', '../js/model'],
 
-    function ($, Backbone,PizzaModel) {
+    function ($, Backbone, PizzaModel) {
         'use strict';
         var CollectionOfPizza;
 

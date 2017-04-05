@@ -40,7 +40,7 @@
             // -----carousel------//
             $('#my-slider').slider({dots: true, autoSlide: true});
             // -----/carousel------//
-            //
+
             // window.PizzaApp = {
             //     Models: {},
             //     Collections: {},
@@ -54,7 +54,6 @@
             View.collection.fetch();
 
             $('#pizza-content').append(View.render().el);
-
         });
     });
 })();

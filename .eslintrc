@@ -8,12 +8,15 @@
   "globals": {
     // Global variables used in a file, but defined in another file
     // More info here - http://eslint.org/docs/user-guide/configuring#specifying-globals
+   "require": true,
+    "define": true
   },
   "extends": "plugin:backbone/recommended",
   "plugins": [
     // Defining ESLint plugins you use
     // More info here - http://eslint.org/docs/user-guide/configuring#configuring-plugins
-    "backbone"
+    "backbone",
+    "requirejs"
   ],
   "settings": {
     "backbone": {
@@ -23,6 +26,11 @@
     }
   },
   "rules": {
+    "requirejs/no-invalid-define": 2,
+    "requirejs/no-multiple-define": 2,
+    "requirejs/no-named-define": 2,
+    "requirejs/no-commonjs-wrapper": 2,
+    "requirejs/no-object-define": 1,
     // Syntax or logic errors
     "no-console": 2,
     // can be disabled while developing

@@ -1,4 +1,4 @@
-define(['backbone','jquery'],
+define(['backbone', 'jquery'],
     function (Backbone, $) {
         'use strict';
         var PizzaView,
