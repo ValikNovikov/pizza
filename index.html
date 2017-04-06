@@ -89,7 +89,7 @@
     </div>
 
     <!------ /Slider-------->
-    <button id="start-stop" class="btn btn-lg btn-danger">Start/Stop</button>
+  <p class="start-stop-btn text-center margin-top"><button id="start-stop" class="btn btn-lg btn-danger">Start/Stop</button></p>
     <div class="container-fluid">
         <div class="row margin-top">
 
@@ -218,7 +218,9 @@
     <div class="pizza col-md-3 col-sm-5 col-xs-10 col-sm-push-1 col-sm-pull-1  col-xs-push-1">
         <div class="ingredients">
             <h2>Ingredients:</h2>
-            <p><%= ingredients %></p>
+            <ul id="arrOfIngredients"><% _.each(ingredients, function(ingredient) { %><li class="ingr"><%=ingredient%></li>
+                <%});%>
+            </ul >
         </div>
         <div class="thumb">
             <img class="img-responsive" alt="300x200" src='<%= img %>'>

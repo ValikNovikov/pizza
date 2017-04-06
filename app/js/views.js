@@ -27,6 +27,11 @@ define(['backbone', 'jquery', 'underscore'],
             render: function () {
                 this.$el.empty();
                 this.collection.each(function (pizza) {
+                    pizza.attributes.ingredients.forEach(function (attr) {
+                        if (attr === 'chilly') {
+                            pizza.attributes.chilly = './app/assets/images/chili.png';
+                        }
+                    });
                     renderView = new PizzaView({model: pizza});
                     this.el.append(renderView.render().el);
                 }, this);

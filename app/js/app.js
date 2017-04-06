@@ -73,12 +73,11 @@
         View = new PizzaView.PizzaCollectionView({collection: collectionOfPizzas});
 
         View.collection.fetch();
+        arrOfProducts = [];
 
         $('#pizza-content').append(View.render().el);
 
-
         // -----the most popular product------//
-        arrOfProducts = [];
 
         function add (str) {
             if (!findProduct(str)) {
@@ -97,13 +96,6 @@
             return val;
         }
 
-        add('egg');
-        add('mazik');
-        add('mazik');
-        add('mazik');
-        add('cibulya');
-        add('salt');
-
         function findMostPopular (a, b) {
             if (a.count > b.count) {
                 return -1; // eslint-disable-line
@@ -114,8 +106,14 @@
             return 0; // eslint-disable-line
         }
 
-        arrOfProducts.sort(findMostPopular);
-        console.log(arrOfProducts[0], arrOfProducts); // eslint-disable-line
+        $().ready(function () {
+            $('#arrOfIngredients li').each(function () {
+                add($(this).text());
+            });
+
+            arrOfProducts.sort(findMostPopular);
+            console.log(arrOfProducts[0]);   // eslint-disable-line
+        });
 
         // function findMostUnPopular(a, b) {
         // 	if (a.count < b.count)
