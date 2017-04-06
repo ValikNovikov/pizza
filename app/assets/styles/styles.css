@@ -529,6 +529,7 @@ p {
     right: 0;
     bottom: 0;
     left: 0;
+    height: 108px;
 }
 .social-menu{
     float: right;
@@ -582,7 +583,9 @@ p {
     .header-menu li ul li{
         margin: 0 ;
     }
-
+    .text-footer p{
+        font-size: smaller;
+    }
 }
 
 @media screen and (max-width: 970px) {
@@ -625,6 +628,12 @@ p {
     }
     .header{
         height: 80px;
+    }
+    .footer{
+        height: inherit;
+    }
+    .text-footer p{
+      font-size: smaller;
     }
 }
 

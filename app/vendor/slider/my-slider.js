@@ -13,7 +13,8 @@
         i,
         intervalStart,
         interval,
-        buttons = '<button class="prev">&#x2190;</button> <button class="next">&#x2192;</button>';
+        buttons = '<button class="prev">&#x2190;</button> <button class="next">&#x2192;</button>',
+        startStop = true;
 
     jQuery.fn.slider = function (options) {
         options = $.extend({
@@ -22,7 +23,6 @@
             delay: 4000, // eslint-disable-line
             dots: false
         }, options);
-
 
         sliderLogic = function () {
             lastSlide.clone().prependTo($ul);
@@ -126,5 +126,15 @@
 
 
         return this.each(sliderLogic);
+    };
+
+    jQuery.fn.stopSlider = function () {
+        if (startStop) {
+            clearInterval(interval);
+            startStop = false;
+        } else {
+            intervalStart();
+            startStop = true;
+        }
     };
 })(jQuery);

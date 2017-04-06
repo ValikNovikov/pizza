@@ -36,7 +36,8 @@
             View,
             $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
-            arrOfProducts;
+            arrOfProducts,
+            sliderCall;
 
 
         /* Set the width of the side navigation to 250px */
@@ -59,7 +60,11 @@
 
         // -----carousel------//
 
-        $('#my-slider').slider({dots: true, autoSlide: true, delay: 4000});
+        sliderCall = $('#my-slider').slider({dots: true, autoSlide: true, delay: 4000});
+
+        $('#start-stop').click(function () {
+            sliderCall.stopSlider();
+        });
 
         // -----/carousel------//
 
