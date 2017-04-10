@@ -31,13 +31,15 @@
     });
 
 
-    require(['jquery', 'underscore', '../js/collection', '../js/views', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView) {
-        var collectionOfPizzas,
-            View,
-            $mobileDropDown = $('.mobile-dropdown'),
+    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView, Router) {
+        var $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
             arrOfProducts,
-            sliderCall;
+            sliderCall,
+            query,
+            collectionOfPizzas,
+            pizzaView,
+            router = new Router();
 
 
         /* Set the width of the side navigation to 250px */
@@ -68,15 +70,7 @@
 
         // -----/carousel------//
 
-        collectionOfPizzas = new PizzaCollection();
-
-        View = new PizzaView.PizzaCollectionView({collection: collectionOfPizzas});
-
-        View.collection.fetch();
         arrOfProducts = [];
-
-        $('#pizza-content').append(View.render().el);
-
         // -----the most popular product------//
 
         function add (str) {
@@ -109,11 +103,21 @@
         $().ready(function () {
             $('#arrOfIngredients li').each(function () {
                 add($(this).text());
+
+                $('.pizza').click(function () {
+                    query = $(this).find('#pizza-name').text();
+                    router.navigate('/description/' + query, true);
+                });
             });
 
             arrOfProducts.sort(findMostPopular);
             console.log(arrOfProducts[0]);   // eslint-disable-line
         });
+
+        collectionOfPizzas = new PizzaCollection();
+        pizzaView = new PizzaView.PizzaDescriptionView({collection: collectionOfPizzas, pizzaName: name});
+        pizzaView.collection.fetch();
+        $('#pizza-description').append(pizzaView.render().el);
 
         // function findMostUnPopular(a, b) {
         // 	if (a.count < b.count)

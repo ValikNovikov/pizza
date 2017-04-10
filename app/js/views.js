@@ -3,7 +3,10 @@ define(['backbone', 'jquery', 'underscore'],
         'use strict';
         var PizzaView,
             pizzaCollectionView,
-            renderView;
+            renderView,
+            pizzaDescriptionView,
+            name,
+            PizzaDescTemplate;
 
         window.template = function (id) {
             return _.template($('#' + id).html());
@@ -11,7 +14,14 @@ define(['backbone', 'jquery', 'underscore'],
 
         PizzaView = Backbone.View.extend({
             template: window.template('pizzaTemplate'),
+            render: function () {
+                this.setElement(this.template(this.model.toJSON()));
+                return this;
+            }
+        });
 
+        PizzaDescTemplate = Backbone.View.extend({
+            template: window.template('pizzaDescription'),
             render: function () {
                 this.setElement(this.template(this.model.toJSON()));
                 return this;
@@ -27,11 +37,6 @@ define(['backbone', 'jquery', 'underscore'],
             render: function () {
                 this.$el.empty();
                 this.collection.each(function (pizza) {
-                    pizza.attributes.ingredients.forEach(function (attr) {
-                        if (attr === 'chilly') {
-                            pizza.attributes.chilly = './app/assets/images/chili.png';
-                        }
-                    });
                     renderView = new PizzaView({model: pizza});
                     this.el.append(renderView.render().el);
                 }, this);
@@ -39,8 +44,28 @@ define(['backbone', 'jquery', 'underscore'],
             }
         });
 
+        pizzaDescriptionView = Backbone.View.extend({
+            initialize: function (options) {
+                name = options.pizzaName;
+                this.listenTo(this.collection, 'add reset', function () {
+                    this.render();
+                });
+            },
+            render: function () {
+                this.$el.empty();
+                this.collection.each(function (pizza) {
+                    if (pizza.attributes.name === name) {
+                        renderView = new PizzaDescTemplate({model: pizza});
+                        this.el.append(renderView.render().el);
+                    }
+                }, this);
+                return this;
+            }
+        });
+
         return {
             PizzaView: PizzaView,
-            PizzaCollectionView: pizzaCollectionView
+            PizzaCollectionView: pizzaCollectionView,
+            PizzaDescriptionView: pizzaDescriptionView
         };
     });

@@ -12,7 +12,7 @@
       "ingredients":["cherry", "tomatoes", "halved", "basil", "leaves", "garlic", "passata", "cheese"]
     },
     {
-      "name": "Hawaiian",
+      "name": "Cheese",
       "img": "./app/assets/images/pizza.png",
       "price": "10$",
       "ingredients":["cherry", "tomatoes", "basil", "leaves", "garlic", "passata", "cheese", "peach", "chicken meat"]

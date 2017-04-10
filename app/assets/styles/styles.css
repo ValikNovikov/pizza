@@ -433,7 +433,7 @@ p {
   line-height: 40px;
 }
 .pizza:hover{
-    box-shadow: 0px 0px 150px #000000;
+    box-shadow: 0 0 150px #000000;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.5);
@@ -477,7 +477,7 @@ p {
 }
 
 .pizza-price span{
-    float: left;
+    float: right;
     font-family: 'Baloo Bhaina', cursive;
     font-size: 25px;
 }
@@ -494,6 +494,32 @@ p {
 
 }
 /* /news container */
+
+
+
+/* pizza-description container */
+#pizza-description h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 6%;
+}
+.description-img{
+    width: 100%;
+}
+.descr-ingredients h2{
+ font-size: 25px;
+}
+.descr-ingredients ul{
+    margin-top: 5%;
+}
+.descr-price .pizza-price{
+    padding: 0;
+    margin-top: 2%;
+}
+.descr-price button{
+    float: none;
+}
+/* /pizza-description container */
 
 
 /*Sprites*/
