@@ -30,13 +30,16 @@
         }
     });
 
-    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($) {
+
+    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView, Router) {
         var $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
             arrOfProducts,
-            sliderCall;
+            sliderCall,
+            router; // eslint-disable-line
 
         $(function () {
+            router = new Router();
             // ----- Set the width of the side navigation to 250px ------//
 
             $('.open-mobile-menu').click(function () {
@@ -67,6 +70,7 @@
             $('#arrOfIngredients li').each(function () {
                 add($(this).text());
             });
+
 
             arrOfProducts.sort(findMostPopular);
             console.log(arrOfProducts[0]);   // eslint-disable-line
