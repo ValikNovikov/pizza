@@ -1,35 +1,31 @@
-define(['backbone', 'jquery', '../js/collection', '../js/views'],
+define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
     function (Backbone, $, PizzaCollection, PizzaView) {
         'use strict';
         var Router,
             View,
-            collectionOfPizzas;
+            $pizzaContent = $('#pizza-content'),
+            pizzaCollectionView;
 
         Router = Backbone.Router.extend({
             initialize: function () {
+                pizzaCollectionView = new PizzaView.PizzaCollectionView();
                 Backbone.history.start();
             },
             routes: {
                 '': 'homePage',
-                'pizza': 'homePage',
-                'description/:query': 'description',
-                '*otherwise': 'otherwise'
+                'pizza/description/:query': 'description'
             },
             homePage: function () {
-                $('#pizza-description').hide();
-                $('#pizza-news-block').show();
+                $('.news').show();
+                $pizzaContent.empty();
+                $pizzaContent.append(pizzaCollectionView.render().el);
+                pizzaCollectionView.delegateEvents();
             },
-
             description: function (name) {
-                $('#pizza-news-block').hide();
-                $('#pizza-description').show();
-                collectionOfPizzas = new PizzaCollection();
-                View = new PizzaView.PizzaDescriptionView({collection: collectionOfPizzas, pizzaName: name});
-                View.collection.fetch();
-                $('#pizza-description').append(View.render().el);
-            },
-            otherwise: function () {
-
+                $pizzaContent.empty();
+                $('.news').hide();
+                View = new PizzaView.PizzaDescriptionView({pizzaName: name});
+                $pizzaContent.append(View.render().el);
             }
         });
         return Router;

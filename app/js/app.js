@@ -30,48 +30,50 @@
         }
     });
 
-
-    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView, Router) {
+    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($) {
         var $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
             arrOfProducts,
-            sliderCall,
-            query,
-            collectionOfPizzas,
-            pizzaView,
-            router = new Router();
+            sliderCall;
 
+        $(function () {
+            // ----- Set the width of the side navigation to 250px ------//
 
-        /* Set the width of the side navigation to 250px */
-        $('.open-mobile-menu').click(function () {
-            $sideNav.addClass('show-sidenav');
+            $('.open-mobile-menu').click(function () {
+                $sideNav.addClass('show-sidenav');
+            });
+
+            // ----- Set the width of the side navigation to 0 --------//
+            $('.menu-btn').click(function () {
+                $sideNav.removeClass('show-sidenav');
+            });
+
+            $('#home-btn').click(function () {
+                if ($mobileDropDown.hasClass('show-dropdown')) {
+                    $mobileDropDown.toggleClass('show-dropdown').slideUp();
+                } else {
+                    $mobileDropDown.slideDown().toggleClass('show-dropdown');
+                }
+            });
+
+            // -----carousel------//
+            sliderCall = $('#my-slider').slider({dots: true, autoSlide: true, delay: 4000});
+
+            $('#start-stop').click(function () {
+                sliderCall.stopSlider();
+            });
+            // -----/carousel------//
+
+            $('#arrOfIngredients li').each(function () {
+                add($(this).text());
+            });
+
+            arrOfProducts.sort(findMostPopular);
+            console.log(arrOfProducts[0]);   // eslint-disable-line
         });
 
-        /* Set the width of the side navigation to 0 */
-        $('.menu-btn').click(function () {
-            $sideNav.removeClass('show-sidenav');
-        });
-
-        $('#home-btn').click(function () {
-            if ($mobileDropDown.hasClass('show-dropdown')) {
-                $mobileDropDown.toggleClass('show-dropdown').slideUp();
-            } else {
-                $mobileDropDown.slideDown().toggleClass('show-dropdown');
-            }
-        });
-
-        // -----carousel------//
-
-        sliderCall = $('#my-slider').slider({dots: true, autoSlide: true, delay: 4000});
-
-        $('#start-stop').click(function () {
-            sliderCall.stopSlider();
-        });
-
-        // -----/carousel------//
-
-        arrOfProducts = [];
         // -----the most popular product------//
+        arrOfProducts = [];
 
         function add (str) {
             if (!findProduct(str)) {
@@ -99,26 +101,6 @@
             }
             return 0; // eslint-disable-line
         }
-
-        $().ready(function () {
-            $('#arrOfIngredients li').each(function () {
-                add($(this).text());
-
-                $('.pizza').click(function () {
-                    query = $(this).find('#pizza-name').text();
-                    router.navigate('/description/' + query, true);
-                });
-            });
-
-            arrOfProducts.sort(findMostPopular);
-            console.log(arrOfProducts[0]);   // eslint-disable-line
-        });
-
-        collectionOfPizzas = new PizzaCollection();
-        pizzaView = new PizzaView.PizzaDescriptionView({collection: collectionOfPizzas, pizzaName: name});
-        pizzaView.collection.fetch();
-        $('#pizza-description').append(pizzaView.render().el);
-
         // function findMostUnPopular(a, b) {
         // 	if (a.count < b.count)
         // 		return -1;

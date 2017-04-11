@@ -1,12 +1,16 @@
-define(['backbone', 'jquery', 'underscore'],
-    function (Backbone, $, _) {
+define(['backbone', 'jquery', 'underscore', '../js/collection'],
+    function (Backbone, $, _, PizzaCollection) {
         'use strict';
+
         var PizzaView,
             pizzaCollectionView,
             renderView,
             pizzaDescriptionView,
             name,
-            PizzaDescTemplate;
+            self, // eslint-disable-line
+            query,
+            PizzaDescTemplate,
+            collectionOfPizzas;
 
         window.template = function (id) {
             return _.template($('#' + id).html());
@@ -29,16 +33,28 @@ define(['backbone', 'jquery', 'underscore'],
         });
 
         pizzaCollectionView = Backbone.View.extend({
+            events: {
+                'click .pizza': 'navigate'
+            },
             initialize: function () {
-                this.listenTo(this.collection, 'add reset', function () {
-                    this.render();
+                self = this;
+                collectionOfPizzas = new PizzaCollection();
+                collectionOfPizzas.fetch({
+                    success: function () {
+                        self.render();
+                    }
                 });
+            },
+
+            navigate: function (ev) {
+                query = ev.currentTarget.children[2].firstElementChild.innerText; // eslint-disable-line
+                Backbone.history.navigate('pizza/description/' + query, true);
             },
             render: function () {
                 this.$el.empty();
-                this.collection.each(function (pizza) {
+                collectionOfPizzas.models.forEach(function (pizza) {
                     renderView = new PizzaView({model: pizza});
-                    this.el.append(renderView.render().el);
+                    this.$el.append(renderView.render().el);
                 }, this);
                 return this;
             }
@@ -46,17 +62,20 @@ define(['backbone', 'jquery', 'underscore'],
 
         pizzaDescriptionView = Backbone.View.extend({
             initialize: function (options) {
+                self = this;
                 name = options.pizzaName;
-                this.listenTo(this.collection, 'add reset', function () {
-                    this.render();
+                collectionOfPizzas.fetch({
+                    success: function () {
+                        self.render();
+                    }
                 });
             },
             render: function () {
                 this.$el.empty();
-                this.collection.each(function (pizza) {
+                collectionOfPizzas.forEach(function (pizza) {
                     if (pizza.attributes.name === name) {
                         renderView = new PizzaDescTemplate({model: pizza});
-                        this.el.append(renderView.render().el);
+                        this.$el.append(renderView.render().el);
                     }
                 }, this);
                 return this;
