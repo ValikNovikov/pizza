@@ -4,6 +4,7 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
         var Router,
             View,
             $pizzaContent = $('#pizza-content'),
+            $pizzaDescription = $('#pizza-description'),
             pizzaCollectionView;
 
         Router = Backbone.Router.extend({
@@ -13,19 +14,28 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
             },
             routes: {
                 '': 'homePage',
-                'pizza/description/:query': 'description'
+                'pizza/:query': 'description'
             },
             homePage: function () {
                 $('.news').show();
-                $pizzaContent.empty();
+                $pizzaDescription.empty();
                 $pizzaContent.append(pizzaCollectionView.render().el);
                 pizzaCollectionView.delegateEvents();
             },
             description: function (name) {
                 $pizzaContent.empty();
                 $('.news').hide();
-                View = new PizzaView.PizzaDescriptionView({pizzaName: name});
-                $pizzaContent.append(View.render().el);
+
+                pizzaCollectionView.collection.fetch({
+                    success: function () {
+                        pizzaCollectionView.collection.each(function (model) {
+                            if (model.attributes.name === name) {
+                                View = new PizzaView.PizzaDescriptionView({model: model});
+                                $pizzaDescription.append(View.render().el);
+                            }
+                        }, this);
+                    }
+                });
             }
         });
         return Router;

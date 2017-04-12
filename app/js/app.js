@@ -34,9 +34,10 @@
     require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView, Router) {
         var $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
-            arrOfProducts,
+            arrOfProducts = [],
             sliderCall,
-            router; // eslint-disable-line
+            theMostPopularProduct,
+            router;// eslint-disable-line
 
         $(function () {
             router = new Router();
@@ -67,50 +68,38 @@
             });
             // -----/carousel------//
 
-            $('#arrOfIngredients li').each(function () {
-                add($(this).text());
+
+            $('#arrOfIngredients li').ready(function () {
+                $('#arrOfIngredients li').each(function () {
+                    add($(this).text());
+                });
+
+                theMostPopularProduct = arrOfProducts.reduce(function (prev, current) {
+                    return (prev.count > current.count) ? prev : current;
+                });
+                console.log(theMostPopularProduct); // eslint-disable-line
             });
 
 
-            arrOfProducts.sort(findMostPopular);
-            console.log(arrOfProducts[0]);   // eslint-disable-line
-        });
+            // -----the most popular product------//
 
-        // -----the most popular product------//
-        arrOfProducts = [];
 
-        function add (str) {
-            if (!findProduct(str)) {
-                arrOfProducts.push({name: str, count: 1});
-            }
-        }
-
-        function findProduct (prod) {
-            var val = false;  // eslint-disable-line
-            arrOfProducts.forEach(function (item, index) {
-                if (item.name === prod) {
-                    arrOfProducts[index].count += 1;
-                    val = true;
+            function add (str) {
+                if (!findProduct(str)) {
+                    arrOfProducts.push({name: str, count: 1});
                 }
-            });
-            return val;
-        }
+            }
 
-        function findMostPopular (a, b) {
-            if (a.count > b.count) {
-                return -1; // eslint-disable-line
+            function findProduct (prod) {
+                var val = false;  // eslint-disable-line
+                arrOfProducts.forEach(function (item, index) {
+                    if (item.name === prod) {
+                        arrOfProducts[index].count += 1;
+                        val = true;
+                    }
+                });
+                return val;
             }
-            if (a.count < b.count) {
-                return 1; // eslint-disable-line
-            }
-            return 0; // eslint-disable-line
-        }
-        // function findMostUnPopular(a, b) {
-        // 	if (a.count < b.count)
-        // 		return -1;
-        // 	if (a.count > b.count)
-        // 		return 1;
-        // 	return 0;
-        // }
+        });
     });
 })();
