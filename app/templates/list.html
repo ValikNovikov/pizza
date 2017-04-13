@@ -1,0 +1,24 @@
+<script id="pizzaTemplate" type="text/template">
+    <div class="pizza col-md-3 col-sm-5 col-xs-10 col-sm-push-1 col-sm-pull-1  col-xs-push-1">
+        <div class="ingredients">
+            <h2>Ingredients:</h2>
+            <ul id="arrOfIngredients"><% _.each(ingredients, function(ingredient) { %>
+                <li class="ingr"><%=ingredient%></li>
+                <%});%>
+            </ul>
+        </div>
+        <div class="thumb">
+            <img class="img-responsive" alt="300x200" src='<%= img %>'>
+        </div>
+        <div class="caption">
+            <h3 id="pizza-name"><%= name %></h3>
+            <% if(chilly){ %>
+            <img class="chilly" src='<%= chilly %>'>
+            <% } %>
+            <div class="pizza-price">
+                <span><%= price %></span>
+            </div>
+
+        </div>
+    </div>
+</script>

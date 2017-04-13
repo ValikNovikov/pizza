@@ -1,5 +1,5 @@
-define(['backbone', 'jquery', 'underscore', '../js/collection'],
-    function (Backbone, $, _, PizzaCollection) {
+define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/description.html', 'text!templates/list.html'],
+    function (Backbone, $, _, PizzaCollection, descriptionTemplate, listTemplate) {
         'use strict';
 
         var PizzaView,
@@ -8,20 +8,16 @@ define(['backbone', 'jquery', 'underscore', '../js/collection'],
             pizzaDescriptionView,
             query;
 
-        window.template = function (id) {
-            return _.template($('#' + id).html());
-        };
 
         PizzaView = Backbone.View.extend({
 
-            template: window.template('pizzaTemplate'),
+            template: _.template($(listTemplate).html()),
 
             render: function () {
                 this.setElement(this.template(this.model.toJSON()));
                 return this;
             }
         });
-
 
         pizzaCollectionView = Backbone.View.extend({
             events: {
@@ -49,9 +45,10 @@ define(['backbone', 'jquery', 'underscore', '../js/collection'],
         });
 
         pizzaDescriptionView = Backbone.View.extend({
+            template: _.template($(descriptionTemplate).html()),
+
             render: function () {
                 this.$el.empty();
-                this.template = window.template('pizzaDescription');
                 this.setElement(this.template(this.model.toJSON()));
                 return this;
             }

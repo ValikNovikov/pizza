@@ -3,12 +3,14 @@
 
     require.config({
         paths: {
-            // specific libs and plugins
+            'text': '/pizza/node_modules/text/text',
             'jquery': '../vendor/jquery/jquery-3.2.0.min',
             'backbone': '../vendor/backbone/backbone-min',
             'underscore': '../vendor/underscore/underscore-min',
             'slider': '../vendor/slider/my-slider',
-            'bootstrap': '../vendor/bootstrap/js/bootstrap.min'
+            'bootstrap': '../vendor/bootstrap/js/bootstrap.min',
+            'templates': '../templates'
+
         },
         shim: {
             'jquery': {
@@ -31,7 +33,7 @@
     });
 
 
-    require(['jquery', 'underscore', '../js/collection', '../js/views', '../js/router', 'slider', 'bootstrap'], function ($, _, PizzaCollection, PizzaView, Router) {
+    require(['jquery', 'underscore', '../js/router', 'slider', 'bootstrap'], function ($, _, Router) {
         var $mobileDropDown = $('.mobile-dropdown'),
             $sideNav = $('#sidenav'),
             arrOfProducts = [],
@@ -82,7 +84,6 @@
 
 
             // -----the most popular product------//
-
 
             function add (str) {
                 if (!findProduct(str)) {
