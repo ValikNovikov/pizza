@@ -10,7 +10,6 @@
             'slider': '../vendor/slider/my-slider',
             'bootstrap': '../vendor/bootstrap/js/bootstrap.min',
             'templates': '../templates'
-
         },
         shim: {
             'jquery': {
