@@ -81,7 +81,7 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
         shoppingCart = Backbone.View.extend({
             events: {
                 'click #modal-close': 'navigate',
-                'click #buy': 'showSuccessMsg',
+                'click #buy': 'buy'
             },
             template: _.template($(shoppingCartTemplate).html()),
 
@@ -89,7 +89,7 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
                 this.$el.empty();
                 if (itemsInCart.item.length === 0) {  // eslint-disable-line
                     this.navigate('#');
-                    this.showErrorMsg();
+                    this.showMsg('You dont have any items in shop-cart');
                 } else {
                     this.$el.html(this.template({collection: itemsInCart}));
                 }
@@ -98,17 +98,14 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
             navigate: function (route) {
                 Backbone.history.navigate(history || route, true);
             },
-            showSuccessMsg: function () {
+            buy: function () {
+                this.showMsg('Thank you for your order!');
+            },
+            showMsg: function (text) {
                 itemsInCart.item = [];
                 $counter.hide();
-                $('body').append(messageTpl({model: 'Thank you for your order!'}));
+                $('body').append(messageTpl({model: text}));
                 this.navigate();
-                window.setTimeout(function () {
-                    $('.alert-success').fadeOut();
-                }, 4000); // eslint-disable-line
-            },
-            showErrorMsg: function () {
-                $('body').append(messageTpl({model: 'You dont have any items in shop-cart'}));
                 window.setTimeout(function () {
                     $('.alert-success').fadeOut();
                 }, 4000); // eslint-disable-line
