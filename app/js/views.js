@@ -102,7 +102,7 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
             showSuccessMsg: function () {
                 itemsInCart.item = [];
                 $counter.hide();
-                $('body').append(messageTpl({model: 'Thank you for you order!'}));
+                $('body').append(messageTpl({model: 'Thank you for your order!'}));
                 this.navigate();
                 window.setTimeout(function () {
                     $('.alert-success').fadeOut();
