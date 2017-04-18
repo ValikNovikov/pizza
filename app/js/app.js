@@ -100,6 +100,10 @@
                 });
                 return val;
             }
+
+            $('.shopping-cart').click(function () {
+                router.navigate('cart', {trigger: true});
+            });
         });
     });
 })();

@@ -13,12 +13,6 @@
 </head>
 <body>
 <div class="header">
-    <a href="index.html">
-        <div class="header-logo">
-            <span>logo</span>
-        </div>
-    </a>
-
     <!---Mobile menu-->
     <div id="sidenav" class="sidenav">
         <a class="menu-btn close-btn">&times;</a>
@@ -43,6 +37,14 @@
     <span class="open-mobile-menu">&#9776;</span>
     <!---/ Mobile menu-->
 
+    <a href="index.html">
+        <div class="header-logo">
+            <span>logo</span>
+        </div>
+    </a>
+
+
+
 
     <ul id="menu" class="header-menu">
         <li>
@@ -56,38 +58,43 @@
         <li>NEWS</li>
         <li>CONTACTS</li>
     </ul>
+    <div class="shopping-cart">
+        <span class="glyphicon glyphicon-shopping-cart"><span id="cart-counter" class="badge"></span></span>
 
+    </div>
 </div>
 <div class="main-container">
     <!------ Slider-------->
-    <div class="slider-container">
 
-        <div class="slider" id="my-slider">
-            <ul>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
-                <li>
-                    <img src="app/assets/images/Pizza-Slider.png"/>
-                </li>
+    <div class="container">
+        <div class="slider-container">
+
+            <div class="slider" id="my-slider">
+                <ul>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                    <li>
+                        <img src="app/assets/images/Pizza-Slider.png"/>
+                    </li>
+                </ul>
+            </div>
+            <ul id="dots">
             </ul>
         </div>
-        <ul id="dots">
-        </ul>
     </div>
-
     <!------ /Slider-------->
     <p class="start-stop-btn text-center margin-top">
         <button id="start-stop" class="btn btn-lg btn-danger">Start/Stop</button>
@@ -166,7 +173,9 @@
 
             </div>
 
-            <div id="pizza-description">
+            <div class="container">
+                <div id="pizza-description">
+                </div>
             </div>
         </div>
 

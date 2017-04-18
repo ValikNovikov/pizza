@@ -76,32 +76,37 @@ html {
     height: 100%;
     box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
     box-sizing: inherit;
 }
-body{
+
+body {
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
 }
-.main-container{
+
+.main-container {
     margin: 0 0 40px 0;
 }
 
 p {
     font-family: 'Baloo Bhaina', cursive;
 }
-.margin-top{
+
+.margin-top {
     margin-top: 20px;
 }
-.padding{
+
+.padding {
     padding: 0;
 }
-/* /Globals*/
 
+/* /Globals*/
 
 /*Header*/
 .header {
@@ -125,7 +130,9 @@ p {
 }
 
 .header-menu {
-    float: right;
+    float: left;
+    width: 60%;
+    text-align: end;
 }
 
 .header-menu li {
@@ -171,9 +178,11 @@ p {
     border-bottom: solid 0.5px;
     display: table;
 }
-.dropdown li:last-child{
-    border-bottom:none;
+
+.dropdown li:last-child {
+    border-bottom: none;
 }
+
 .dropdown li p {
     color: #000;
     display: table-cell;
@@ -184,14 +193,29 @@ p {
     display: none;
 }
 
-/* /Header*/
+.shopping-cart {
+    float: right;
+    width: 6%;
+    margin-top: 2%;
+    font-size: 40px;
+    color: rgb(239, 93, 93);
+    text-align: center;
+    cursor: pointer;
+}
 
+#cart-counter {
+    position: absolute;
+    right: 6px;
+    top: -14px;
+}
+
+/* /Header*/
 
 /*Mobile Menu*/
 .sidenav {
     height: 100%;
     width: 250px;
-    transform:translateX(-260px);
+    transform: translateX(-260px);
     position: fixed;
     z-index: 3;
     top: 0;
@@ -202,7 +226,8 @@ p {
     transition: 0.5s;
 
 }
-.show-sidenav{
+
+.show-sidenav {
     transform: translateX(0);
 }
 
@@ -215,40 +240,45 @@ p {
     transition: 0.3s
 }
 
-.sidenav a:hover{
+.sidenav a:hover {
     color: #f1f1f1;
 }
 
- .close-btn {
+.close-btn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px !important;
     margin-left: 50px;
 }
-.open-mobile-menu{
-    display:none;
+
+.open-mobile-menu {
+    display: none;
 }
-.mobile-dropdown{
+
+.mobile-dropdown {
     padding: 20px 50px;
     display: none;
 }
-.mobile-dropdown li{
+
+.mobile-dropdown li {
     font-size: 20px;
 }
-.show-dropdown{
+
+.show-dropdown {
     display: block !important;
 }
-/* /Mobile Menu*/
 
+/* /Mobile Menu*/
 
 /*Carousel*/
 .slider-container {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     background-color: #fff;
     min-height: 400px;
 }
+
 .slider {
     width: 100%;
     overflow: hidden;
@@ -283,6 +313,7 @@ p {
     min-height: 100%;
     height: 100%;
 }
+
 .slider button {
     position: absolute;
     display: block;
@@ -296,7 +327,7 @@ p {
     color: #fff;
     margin: 0;
     padding: 0;
-    text-align:center;
+    text-align: center;
     opacity: 0;
     z-index: 2;
 }
@@ -312,20 +343,22 @@ p {
 .slider button:hover, .slider button:active {
     opacity: 1.0;
 }
-.active{
+
+.active {
     background-color: black !important;
 }
 
-#dots{
+#dots {
     position: relative;
     display: inline-block;
-    margin: 10px 0 0 0 ;
+    margin: 10px 0 0 0;
     padding: 0;
     list-style: none;
     cursor: default;
     text-align: center;
     width: 100%;
 }
+
 #dots li {
     position: relative;
     display: inline-block;
@@ -334,7 +367,8 @@ p {
     height: 16px;
     cursor: pointer;
 }
-#dots li a{
+
+#dots li a {
     top: 0;
     left: 0;
     width: 100%;
@@ -350,9 +384,11 @@ p {
     -webkit-transition: background 0.3s ease;
     transition: background 0.3s ease;
 }
-#dots li a:hover{
+
+#dots li a:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
+
 /* /Carousel*/
 
 /*news and pizza content*/
@@ -368,21 +404,26 @@ p {
     margin: 20px;
     border-bottom: solid 2px;
 }
-.news-thumb:last-child{
+
+.news-thumb:last-child {
     border-bottom: none;
 }
-.news-thumb p{
+
+.news-thumb p {
     margin-bottom: 15px;
     text-align: justify;
 }
+
 .news-thumb img {
     float: left;
     padding: 12px;
     display: block
 }
-.news-thumb hr{
+
+.news-thumb hr {
     width: 93%;
 }
+
 .news-content {
     margin-left: 210px
 }
@@ -412,6 +453,7 @@ p {
     transition: all 100ms ease-in;
     transform: scale(1);
 }
+
 .ingredients {
     visibility: hidden;
     position: absolute;
@@ -425,14 +467,17 @@ p {
     text-align: center;
     line-height: 1;
 }
-.ingredients h2{
- font-size: 25px;
+
+.ingredients h2 {
+    font-size: 25px;
     margin: 10px 0 0 0;
 }
-.ingredients p{
-  line-height: 40px;
+
+.ingredients p {
+    line-height: 40px;
 }
-.pizza:hover{
+
+.pizza:hover {
     box-shadow: 0 0 150px #000000;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
@@ -444,15 +489,17 @@ p {
     transition: all 100ms ease-in;
     transform: scale(1.1);
 }
+
 .pizza:hover .ingredients {
     visibility: visible;
     opacity: 1;
 }
-.chilly{
+
+.chilly {
     float: right;
 }
 
-.thumb img{
+.thumb img {
     z-index: 1;
     top: 0;
     left: 0;
@@ -460,28 +507,32 @@ p {
     max-width: 100%;
     margin: auto auto;
 }
-.thumb button{
+
+.thumb button {
     z-index: 5;
     position: absolute;
     bottom: 0;
     right: 0;
 }
-.caption h3{
+
+.caption h3 {
     text-align: center;
     font-family: 'Baloo Bhaina', cursive;
     font-size: 25px;
     margin-top: 10px;
 }
-.pizza-price{
+
+.pizza-price {
     padding: 90px 10px 40px 10px;
 }
 
-.pizza-price span{
+.pizza-price span {
     float: right;
     font-family: 'Baloo Bhaina', cursive;
     font-size: 25px;
 }
-.pizza-price button{
+
+.pizza-price button {
     float: right;
     width: 60px;
     height: 30px;
@@ -489,38 +540,69 @@ p {
     border-radius: 10px;
     border: none;
 }
-.pizza-price button:hover{
+
+.pizza-price button:hover {
     background-color: red;
 
 }
+
 /* /news container */
 
-
-
 /* pizza-description container */
-#pizza-description h3{
+#pizza-description h3 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 6%;
 }
-.description-img{
+
+.description-img {
     width: 100%;
 }
-.descr-ingredients h2{
- font-size: 25px;
+
+.descr-ingredients h2 {
+    font-size: 25px;
 }
-.descr-ingredients ul{
+
+.descr-ingredients ul {
     margin-top: 5%;
 }
-.descr-price .pizza-price{
+
+.descr-price .pizza-price {
     padding: 0;
     margin-top: 2%;
 }
-.descr-price button{
+
+.descr-price button {
     float: none;
 }
+
 /* /pizza-description container */
 
+
+
+/* shop-cart container */
+.cart-img{
+    width: 100%;
+}
+.pizza-cart-list{
+    border-bottom: solid 1px ;
+    margin: 10px;
+}
+.pizza-cart-list:last-child{
+    border-bottom: none;
+}
+.pizza-cart-price{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.order-msg{
+    position: absolute;
+    top: 9%;
+    left: 0;
+    right: 0;
+}
+/* /shop-cart container */
 
 /*Sprites*/
 .vk-icon, .facebook-icon, .twitter-icon {
@@ -528,25 +610,26 @@ p {
     background-repeat: no-repeat;
     display: block;
 }
-.twitter-icon{
+
+.twitter-icon {
     width: 32px;
     height: 32px;
     background-position: -5px -5px;
 }
+
 .facebook-icon {
     width: 32px;
     height: 32px;
     background-position: -47px -5px;
 }
+
 .vk-icon {
     width: 32px;
     height: 32px;
     background-position: -89px -5px;
 }
 
-
 /*/Sprites*/
-
 
 /*Footer*/
 .footer {
@@ -558,37 +641,41 @@ p {
     left: 0;
     height: 108px;
 }
-.social-menu{
+
+.social-menu {
     float: right;
     margin: 20px 10px 10px 10px;
 }
-.social-menu li{
+
+.social-menu li {
     display: inline-table;
 }
-.social-menu li span{
+
+.social-menu li span {
     margin: 0 auto 5px auto;
 }
-.social-menu li p{
+
+.social-menu li p {
     font-size: 12px;
     text-align: center;
 }
 
-.footer-menu{
+.footer-menu {
     width: 50%;
     float: left;
     margin: 15px 10px 10px 10px;
 }
 
-.footer-center-menu{
+.footer-center-menu {
     float: right;
     text-align: center;
 }
 
-.footer-center-menu li a:hover{
-  color: cornflowerblue;
+.footer-center-menu li a:hover {
+    color: cornflowerblue;
 }
 
-.footer-text{
+.footer-text {
     width: 30%;
     font-size: 12px;
     float: left;
@@ -600,67 +687,119 @@ p {
 @media screen and (max-width: 1700px) {
 
 }
-@media screen and (max-width: 1036px) {
 
-}
 @media screen and (max-width: 1285px) {
-    .header-menu li{
-        margin: 10px 0 10px 0 ;
+    .header-menu li {
+        margin: 10px 0 10px 0;
     }
-    .header-menu li ul li{
-        margin: 0 ;
+
+    .header-menu li ul li {
+        margin: 0;
     }
-    .text-footer p{
+
+    .text-footer p {
         font-size: smaller;
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .header-menu {
+        width: 59%;
+        text-align: center;
+    }
+
+    .header-menu li {
+        width: 170px;
+    }
+}
+
 @media screen and (max-width: 970px) {
-    .header-menu li{
+    .header-menu li {
         width: 130px;
     }
-    .footer-text{
+
+    .footer-text {
         font-size: 10px;
         width: 37%;
     }
+
+    .header-menu {
+        width: 50%;
+    }
 }
-@media screen and (max-width: 768px) {
-    .header-menu li{
+
+@media screen and (max-width: 806px) {
+    .header-menu li {
         width: 100px;
     }
-    .news{
-       display: none;
+
+    .shopping-cart {
+        width: 5%;
+        margin-top: 4%;
+        font-size: 35px;
     }
-    .main-container{
+}
+
+@media screen and (max-width: 768px) {
+    .shopping-cart {
+        margin-top: 3.5%;
+        font-size: 30px;
+        color: rgb(239, 93, 93);
+        text-align: left;
+    }
+
+    .news {
+        display: none;
+    }
+
+    .main-container {
         margin: 0 0 140px 0;
     }
-    .container-pizza-news{
+
+    .container-pizza-news {
         text-align: center
     }
-    .pizza-blocks{
+
+    .pizza-blocks {
         width: 100%;
         text-align: center;
         float: none;
         margin: 0;
     }
-    .thumb img{
+
+    .thumb img {
         width: 100%;
     }
-    .header-menu li{
+
+    .header-menu li {
         margin: 0;
     }
-    .header-logo{
+
+    .header-logo {
         margin: 0;
         height: 80px;
     }
-    .header{
+
+    .header {
         height: 80px;
     }
-    .footer{
+
+    .footer {
         height: inherit;
     }
-    .text-footer p{
-      font-size: smaller;
+
+    .text-footer p {
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 697px) {
+    .header-menu {
+        width: 45%;
+    }
+
+    .header-menu li {
+        width: 85px;
     }
 }
 
@@ -668,6 +807,7 @@ p {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 18px;
     }
@@ -677,9 +817,11 @@ p {
     #menu {
         display: none;
     }
-    .main-container{
-       margin: 0 0 200px 0;
+
+    .main-container {
+        margin: 0 0 200px 0;
     }
+
     .slicknav_menu {
         display: none;
     }
@@ -691,44 +833,59 @@ p {
         position: static;
     }
 
-    .header-logo{
+    .header-logo {
         float: none;
         margin: 0;
     }
 
-    .header-logo{
-        float: right;
-        width: 80%;
+    .header-logo {
+        float: left;
+        width: 70%;
     }
 
-    .open-mobile-menu{
+    #cart-counter {
+        right: 3px;
+    }
+    .open-mobile-menu {
         display: block;
         float: left;
-        padding: 25px 10px 10px 15px;
+        padding: 25px 10px 10px 10px;
         font-size: 30px;
+        width: 15%;
     }
 
-    .pizza{
-        margin:0 0 10px 0;
+    .shopping-cart {
+        width: 15%;
+        text-align: center;
+        margin-top: 3.5%;
     }
 
-    .footer-text p{
+    .pizza {
+        margin: 0 0 10px 0;
+    }
+
+    .footer-text p {
         font-size: 8px;
     }
-    .slider-container{
+
+    .slider-container {
         width: 100%;
     }
-    .slider{
+
+    .slider {
         height: 350px;
     }
-    .footer-text{
+
+    .footer-text {
         width: 30%;
 
     }
-    .footer-menu{
+
+    .footer-menu {
         width: 100%;
     }
-    .footer-center-menu{
+
+    .footer-center-menu {
         float: none;
     }
 }

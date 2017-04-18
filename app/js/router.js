@@ -5,7 +5,8 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
             View,
             $pizzaContent = $('#pizza-content'),
             $pizzaDescription = $('#pizza-description'),
-            pizzaCollectionView;
+            pizzaCollectionView,
+            shoppingCartView;
 
         Router = Backbone.Router.extend({
             initialize: function () {
@@ -14,16 +15,22 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
             },
             routes: {
                 '': 'homePage',
-                'pizza/:query': 'description'
+                'pizza/:query': 'description',
+                'cart': 'shoppingCart'
             },
             homePage: function () {
                 $('.news').show();
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
                 $pizzaDescription.empty();
                 $pizzaContent.append(pizzaCollectionView.render().el);
                 pizzaCollectionView.delegateEvents();
             },
             description: function (name) {
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
                 $pizzaContent.empty();
+                $pizzaDescription.empty();
                 $('.news').hide();
 
                 pizzaCollectionView.collection.fetch({
@@ -36,6 +43,11 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
                         }, this);
                     }
                 });
+            },
+            shoppingCart: function () {
+                shoppingCartView = new PizzaView.ShoppingCart();
+                $pizzaDescription.append(shoppingCartView.render().el);
+                $('#myModal').modal('show');
             }
         });
         return Router;

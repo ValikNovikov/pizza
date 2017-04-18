@@ -2,31 +2,31 @@
    {
      "name": "Mexican",
      "img": "./app/assets/images/pizza.png",
-     "price": "12$",
+     "price": "12",
      "ingredients":["cherry", "tomatoes", "basil", "leaves", "garlic", "passata", "cheese", "chilly"]
    },
     {
       "name": "Hawaiian",
       "img": "./app/assets/images/pizza.png",
-      "price": "15$",
+      "price": "15",
       "ingredients":["cherry", "tomatoes", "halved", "basil", "leaves", "garlic", "passata", "cheese"]
     },
     {
       "name": "Cheese",
       "img": "./app/assets/images/pizza.png",
-      "price": "10$",
+      "price": "10",
       "ingredients":["cherry", "tomatoes", "basil", "leaves", "garlic", "passata", "cheese", "peach", "chicken meat"]
     },
     {
       "name": "Margaritta",
       "img": "./app/assets/images/pizza.png",
-     "price": "12$",
+     "price": "12",
       "ingredients":["cherry", "tomatoes", "basil", "leaves", "garlic", "passata", "cheese"]
     },
    {
      "name": "Diablo",
      "img": "./app/assets/images/pizza.png",
-     "price": "13$",
+     "price": "13",
      "ingredients":["chilly", "tomatoes", "garlic", "passata", "garlic", "ham", "salami", "cheese"]
    }
 ]
