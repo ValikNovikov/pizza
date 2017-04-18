@@ -82,7 +82,6 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
             events: {
                 'click #modal-close': 'navigate',
                 'click #buy': 'showSuccessMsg',
-                'click .shopping-cart': 'showErrorMsg'
             },
             template: _.template($(shoppingCartTemplate).html()),
 
