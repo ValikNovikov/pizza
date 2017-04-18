@@ -104,7 +104,7 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
             showMsg: function (text) {
                 itemsInCart.item = [];
                 $counter.hide();
-                $('body').append(messageTpl({model: text}));
+                $('body').append(messageTpl({msgText: text}));
                 this.navigate();
                 window.setTimeout(function () {
                     $('.alert-success').fadeOut();
