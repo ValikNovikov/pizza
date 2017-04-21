@@ -16,6 +16,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-watch": "4.3.11",
+    "json-server": "^0.9.6",
     "precommit-hook-eslint": "3.0.0",
     "text": "github:requirejs/text"
   },

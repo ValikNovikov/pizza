@@ -5,6 +5,7 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
             View,
             $pizzaContent = $('#pizza-content'),
             $pizzaDescription = $('#pizza-description'),
+            $news = $('.news'),
             pizzaCollectionView,
             shoppingCartView;
 
@@ -19,7 +20,7 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
                 'cart': 'shoppingCart'
             },
             homePage: function () {
-                $('.news').show();
+                $news.show();
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
                 $pizzaDescription.empty();
@@ -31,7 +32,7 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
                 $('.modal-backdrop').remove();
                 $pizzaContent.empty();
                 $pizzaDescription.empty();
-                $('.news').hide();
+                $news.hide();
 
                 pizzaCollectionView.collection.fetch({
                     success: function () {
@@ -48,6 +49,7 @@ define(['backbone', 'jquery', '../js/collection', '../js/views', '../js/model'],
                 shoppingCartView = new PizzaView.ShoppingCart();
                 $pizzaDescription.append(shoppingCartView.render().el);
                 $('#myModal').modal('show');
+                $('body').css({'padding-right': '0'});
             }
         });
         return Router;

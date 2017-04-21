@@ -595,12 +595,35 @@ p {
     font-size: 25px;
     font-weight: bold;
 }
-
+.pizza-count{
+    margin:15px 0 15px 0 ;
+}
+.pizza-count input{
+    width: 100%;
+    padding-left: 30%;
+    outline: none;
+    border-radius: 10px;
+}
 .order-msg{
     position: absolute;
     top: 6%;
     left: 0;
     right: 0;
+}
+
+.form-container{
+    display: none;
+}
+
+.form-container input, .form-container button {
+    padding: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.error{
+    color: red;
+    display: block;
+    text-align: center;
 }
 /* /shop-cart container */
 
@@ -857,7 +880,7 @@ p {
     .shopping-cart {
         width: 15%;
         text-align: center;
-        margin-top: 3.5%;
+        margin-top: 7.5%;
     }
 
     .pizza {

@@ -3,7 +3,10 @@ define(['backbone'],
     function (Backbone) {
         'use strict';
         var Pizza,
-            ingredients;
+            ingredients,
+            customerData,
+            key,
+            errors;
 
         Pizza = Backbone.Model.extend({
             defaults: {
@@ -22,5 +25,31 @@ define(['backbone'],
                 }, this);
             }
         });
-        return Pizza;
+
+        customerData = Backbone.Model.extend({
+            urlRoot: 'http://localhost:3000/posts',
+            defaults: {
+                firstName: '',
+                lastName: '',
+                street: '',
+                phone: '',
+                email: '',
+                pizza: []
+            },
+            validate: function (attrs) {
+                errors = [];
+
+                for (key in attrs) {
+                    if (attrs[key] === '') {
+                        errors.push({name: key, message: 'this field is required'});
+                    }
+                }
+                return errors.length > 0 ? errors : false; // eslint-disable-line
+            }
+        });
+
+        return {
+            Pizza: Pizza,
+            CustomerData: customerData
+        };
     });

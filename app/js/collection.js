@@ -5,7 +5,7 @@ define(['jquery', 'backbone', '../js/model'],
         var CollectionOfPizza;
 
         CollectionOfPizza = Backbone.Collection.extend({
-            model: PizzaModel,
+            model: PizzaModel.Pizza,
             url: './app/js/pizza.json'
         });
         return CollectionOfPizza;
