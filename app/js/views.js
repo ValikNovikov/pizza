@@ -190,6 +190,7 @@ define(['backbone', 'jquery', 'underscore', '../js/collection', 'text!templates/
                 this.showMsg('Thank you for your order!');
                 shopCartCollection.item = [];
                 localStorage.removeItem('shoppingCartList');
+                pizzaNames = [];
             },
             showMsg: function (text) {
                 $counter.hide();
